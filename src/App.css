@@ -48,3 +48,87 @@ body {
   color: #fff;
   -moz-osx-font-smoothing: grayscale;
 } */
+
+.parent-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px 10px;
+}
+
+.MuiCardContent-root h2 {
+  color: rgba(0, 0, 0, 0.7019607843137254);
+  font-weight: bold;
+}
+.MuiCardContent-root p {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 13px;
+}
+.MuiCardHeader-content span {
+  font-size: 11px !important;
+}
+.parent-card .MuiPaper-root {
+  flex: 1 0 21%;
+  margin: 5px;
+  margin-top: 20px;
+}
+.card-box {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card-box:hover {
+  cursor: pointer;
+}
+/* .short-desc{
+  max-height: 100px;
+  min-height: 70px;
+} */
+
+.loading-img {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.parent-card a {
+  text-decoration: none;
+}
+
+.MuiPagination-ul {
+  padding-left: 50px !important;
+  padding-bottom: 100px;
+  flex-wrap: nowrap !important;
+}
+
+nav {
+  margin-bottom: 50px;
+  padding-top: 30px;
+}
+
+.skeleton-img {
+  margin-top: 50px;
+}
+
+.next-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.horizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.horizontal img {
+  width: 100%;
+  height: 400px;
+  margin-top: 30px;
+}
+
+.horizontal Button {
+  margin-top: 30px;
+}
