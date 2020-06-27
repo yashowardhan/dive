@@ -7,6 +7,11 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShareIcon from "@material-ui/icons/Share";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import { connect } from "react-redux";
 import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
@@ -54,7 +59,16 @@ function MediaCard(props) {
                     component="p"
                     style={{ color: "#3f51b5" }}
                   >
-                    {article.author} - {article.authorDescription}
+                    By: {article.author}
+                  </Typography>
+
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="p"
+                    style={{ color: "#3f51b5" }}
+                  >
+                    Read time: {article.timeToRead} mins
                   </Typography>
                   <Typography
                     variant="body2"
@@ -66,9 +80,21 @@ function MediaCard(props) {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary" onClick={props.fetchUsers}>
-                  Share
-                </Button>
+                <IconButton aria-label="add to favorites">
+                  <FavoriteIcon fontSize="small" />
+                </IconButton>
+                <IconButton aria-label="like">
+                  <ThumbUpIcon fontSize="small" />
+                </IconButton>
+                <IconButton aria-label="share">
+                  <ShareIcon fontSize="small" />
+                </IconButton>
+                <IconButton aria-label="dislike">
+                  <ThumbDownAltIcon></ThumbDownAltIcon>
+                </IconButton>
+                {/* <Button size="small" color="primary" onClick={props.fetchUsers}>
+                  Read time: {article.timeToRead}
+                </Button> */}
                 <Popup url={article.url}></Popup>
               </CardActions>
             </Card>

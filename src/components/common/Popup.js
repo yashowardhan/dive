@@ -56,7 +56,7 @@ export default function Popup(props) {
   return (
     <div>
       <Button size="small" color="primary" type="button" onClick={handleOpen}>
-        Learn More{" "}
+        Read More{" "}
       </Button>
       <Modal
         open={open}

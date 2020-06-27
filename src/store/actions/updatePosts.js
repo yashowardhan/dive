@@ -6,3 +6,5 @@ const updatePosts = {
 };
 
 export default updatePosts;
+
+// https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
