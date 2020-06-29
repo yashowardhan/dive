@@ -36,7 +36,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Dive In
+            Flick
           </Typography>
           <Link href="/signin" variant="body2" style={{ color: "white" }}>
             {"Log In"}
