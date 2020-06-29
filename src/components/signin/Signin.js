@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,6 +11,7 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Container from "@material-ui/core/Container";
 
 function Copyright() {
@@ -49,6 +50,35 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const submit = (e) => {
+    e.preventDefault();
+    fetch(`https://xandar.pinnium.in/api/dive-in/users/login`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          res.json().then((res) => {
+            toast.error(res.error);
+          })
+        }
+        if (res.status === 500) {
+          toast.error('Something went wrong. Try Again!')
+        }
+
+        if (res.status === 200) {
+          res.json().then((res) => {
+            toast.success("Successful");
+          })
+        }
+      })
+      .catch(() => alert("There was an error, please try again"));
+    console.log(e, "button clicked");
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -70,6 +100,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value = {email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -81,6 +113,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value = {password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -92,6 +126,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={submit}
           >
             Sign In
           </Button>
@@ -107,7 +142,8 @@ export default function SignIn() {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </form> 
+        <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
       </div>
       <Box mt={8}>
         <Copyright />
