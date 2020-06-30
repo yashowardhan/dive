@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,6 +11,7 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Container from "@material-ui/core/Container";
 
 function Copyright() {
@@ -48,6 +49,36 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    fetch(`https://xandar.pinnium.in/api/dive-in/users/`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, username, email, password }),
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          res.json().then((res) => {
+            toast.error(res.error.message);
+          })
+        }
+        if (res.status === 500) {
+          toast.error('Something went wrong. Try Again!')
+        }
+
+        if (res.status === 200) {
+          res.json().then((res) => {
+            toast.success("Signed In");
+          })
+        }
+      })
+      .catch(() => alert("There was an error, please try again"));
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -64,13 +95,15 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="name"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="Name"
+                label="Name"
                 autoFocus
+                value = {name}
+                onChange={(e) => setName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -78,10 +111,12 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
+                id="username"
+                label="Username"
+                name="username"
                 autoComplete="lname"
+                value = {username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,6 +128,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value = {email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -105,12 +142,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                value = {password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -120,6 +153,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={submit}
           >
             Sign Up
           </Button>
@@ -131,6 +165,7 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
+        <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
       </div>
       <Box mt={5}>
         <Copyright />
