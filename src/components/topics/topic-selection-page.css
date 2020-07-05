@@ -1,10 +1,10 @@
 .body{
-
+  background: #DDEDE7
 }
 
 .body .topic-selection-body .container {
   text-align: center;
-
+  background: #DDEDE7
 }
 
 .topic{
@@ -17,7 +17,7 @@
   margin-left: auto;
   margin-right: auto;
   border: 1px solid grey;
-  border-radius: 10px;
+  border-radius: 30px;
   display:table;
 }
 .selected-topic{

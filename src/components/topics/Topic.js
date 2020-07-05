@@ -9,13 +9,45 @@ import {
 import './topic-selection-page.css';
 import axios from 'axios';
 import * as _ from 'lodash';
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      backgroundColor: "#DDEDE7"
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: "#456E5E",
+    },
+    form: {
+      width: "100%", // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+      color: "red",
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+      backgroundColor: "#456E5E",
+      color: "DDEDE7",
+      '&:hover': {
+        backgroundColor: '#456E5E',
+      },
+    input: {
+      color: '#456E5E',
+      }
+    },
+  }));
 export default function Topic() {
+    const classes = useStyles();
   let history = useHistory();
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/feed" } };
+  const userId = sessionStorage.getItem('userId');
   const [allTopics, updateAllTopics] = useState([]);
   const [selectedTopics, updateSelectedTopics] = useReducer(
     (selectedTopics, { type, payload }) => {
@@ -34,7 +66,6 @@ export default function Topic() {
   useEffect(() => {
     const getTopics = async () => {
         try {
-            const userId = sessionStorage.getItem('userId');
             const response = await axios.get
               (`https://xandar.pinnium.in/api/dive-in/categories?userId=${userId}`);
             console.log(response);
@@ -58,7 +89,7 @@ export default function Topic() {
           }
     };
   getTopics();
-}, []);
+}, [userId]);
 
   const saveSelectedTopics = () => {
     const userId = sessionStorage.getItem('userId');
@@ -111,7 +142,7 @@ export default function Topic() {
   console.log(allTopics);
   return (
     <Fragment>
-      <div>
+      <div className='body'>
         <div className='logo'></div>
         <div className='body'>
           <div className='topic-selection-body'>

@@ -6,14 +6,36 @@ import MediaCard from "./components/card/Card";
 import Recommend from "./components/recommend/Recommend";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Footer from "./components/common/Footer";
 import Tags from "./components/common/Tags";
 import "./App.css";
 
+const themeLight = createMuiTheme({
+  palette: {
+    background: {
+      default: "#e4f0e2"
+    }
+  }
+});
+
+const themeDark = createMuiTheme({
+  palette: {
+    background: {
+      default: "#DDEDE7"
+    },
+    text: {
+      primary: '#456E5E'
+    }
+  }
+});
 function App() {
+
   return (
     <div className="App">
       <Header />
+      <MuiThemeProvider theme={themeDark}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/feed" component={MediaCard} />
@@ -28,6 +50,7 @@ function App() {
           <Route component={PageNotFound} />   */}
         </Switch>
       </BrowserRouter>
+      </MuiThemeProvider>
 
       {/* <Footer /> */}
     </div>
