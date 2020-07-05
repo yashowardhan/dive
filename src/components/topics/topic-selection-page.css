@@ -1,14 +1,18 @@
 .body{
-  background: #DDEDE7
+  background: #DDEDE7;
+  height: 100%;
+  width: 100%;
 }
 
 .body .topic-selection-body .container {
+  height: 100%;
+  width: 100%;
   text-align: center;
   background: #DDEDE7
 }
 
 .topic{
-  background: lightblue;
+  background: #B0BDB8;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;
@@ -17,11 +21,11 @@
   margin-left: auto;
   margin-right: auto;
   border: 1px solid grey;
-  border-radius: 30px;
+  border-radius: 13px;
   display:table;
 }
 .selected-topic{
-  background: olivedrab;
+  background: #9AB5BC;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;

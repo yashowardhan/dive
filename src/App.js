@@ -35,8 +35,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MuiThemeProvider theme={themeDark}>
+      
       <BrowserRouter>
+      <MuiThemeProvider theme={themeDark}>
         <Switch>
           <Route exact path="/feed" component={MediaCard} />
           <Route exact path="/signin" component={Home} />
@@ -49,8 +50,9 @@ function App() {
           
           <Route component={PageNotFound} />   */}
         </Switch>
+        </MuiThemeProvider>
       </BrowserRouter>
-      </MuiThemeProvider>
+      
 
       {/* <Footer /> */}
     </div>

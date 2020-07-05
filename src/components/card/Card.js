@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 });
 
@@ -32,8 +32,9 @@ function MediaCard(props) {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     // Update the document title using the browser API
-    props.fetchArticles();
-  }, []);
+    const fetchArticles = props.fetchArticles();
+    fetchArticles();
+  }, [props]);
   console.log(props.articles, "articles working cool");
   const { articles } = props;
   //console.log(users, "data in props");
@@ -55,7 +56,7 @@ function MediaCard(props) {
                   </Typography>
                   <Typography
                     gutterBottom
-                    variant="h5"
+                    variant="h3"
                     component="p"
                     style={{ color: "#3f51b5" }}
                   >

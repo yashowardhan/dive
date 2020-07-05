@@ -7,10 +7,17 @@ import {
   useLocation
 } from "react-router-dom";
 import './topic-selection-page.css';
+import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
 import * as _ from 'lodash';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
+
+const CustomTextTypography = withStyles({
+    root: {
+      color: "#456E5E",
+    }
+  })(Typography);
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -141,16 +148,17 @@ export default function Topic() {
   console.log(selectedTopics);
   console.log(allTopics);
   return (
-    <Fragment>
+    <Container>
       <div className='body'>
         <div className='logo'></div>
         <div className='body'>
           <div className='topic-selection-body'>
             <Container>
-              <h4>Dive In!</h4>
-              <h5>Start Learning Right Away</h5>
-              <br />
-              <h5>Select Topics</h5>
+            <br></br>
+            <CustomTextTypography component="h1" variant="h5">
+                Select Topics
+            </CustomTextTypography>
+            <br></br>
               {_.map(allTopics, (topic) => {
                 return (
                   <Row>
@@ -186,7 +194,7 @@ export default function Topic() {
           <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
         </div>
       </div >
-    </Fragment >
+    </Container>
 
   )
 
