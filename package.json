@@ -17,8 +17,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-toastify": "^6.0.6",
+    "reactstrap": "^8.4.1",
     "react-webpack": "^0.4.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15"
   },
   "scripts": {
     "start": "react-scripts start",

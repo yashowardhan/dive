@@ -13,6 +13,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Container from "@material-ui/core/Container";
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 function Copyright() {
   return (
@@ -49,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/signin" } };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -73,7 +81,8 @@ export default function SignUp() {
 
         if (res.status === 200) {
           res.json().then((res) => {
-            toast.success("Signed In");
+            toast.success("SuccessFully Registered");
+            history.replace(from);
           })
         }
       })

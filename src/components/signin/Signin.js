@@ -13,6 +13,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Container from "@material-ui/core/Container";
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 function Copyright() {
   return (
@@ -49,7 +53,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  let history = useHistory();
+  let location = useLocation();
 
+  let { from } = location.state || { from: { pathname: "/topics" } };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submit = (e) => {
@@ -62,7 +69,7 @@ export default function SignIn() {
       .then((res) => {
         if (res.status === 400) {
           res.json().then((res) => {
-            toast.error(res.error);
+            toast.error(res.error.message);
           })
         }
         if (res.status === 500) {
@@ -71,8 +78,14 @@ export default function SignIn() {
 
         if (res.status === 200) {
           res.json().then((res) => {
+            const { result } = res;
+            const { userId, token } = result
+            sessionStorage.setItem("isLoggedIn", true);
+            sessionStorage.setItem("userId", userId);
+            sessionStorage.setItem("token", token);
             toast.success("Successful");
           })
+          history.replace(from);
         }
       })
       .catch(() => alert("There was an error, please try again"));
