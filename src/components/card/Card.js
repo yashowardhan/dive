@@ -32,8 +32,7 @@ function MediaCard(props) {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     // Update the document title using the browser API
-    const fetchArticles = props.fetchArticles();
-    fetchArticles();
+    props.fetchArticles();
   }, [props]);
   console.log(props.articles, "articles working cool");
   const { articles } = props;

@@ -1,11 +1,11 @@
 .body{
   background: #DDEDE7;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 
 .body .topic-selection-body .container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   text-align: center;
   background: #DDEDE7
