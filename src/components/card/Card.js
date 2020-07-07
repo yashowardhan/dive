@@ -33,7 +33,7 @@ function MediaCard(props) {
   useEffect(() => {
     // Update the document title using the browser API
     props.fetchArticles();
-  }, [props]);
+  }, []);
   console.log(props.articles, "articles working cool");
   const { articles } = props;
   //console.log(users, "data in props");
