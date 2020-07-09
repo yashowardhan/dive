@@ -125,9 +125,10 @@ export default function SignIn() {
             sessionStorage.setItem("isLoggedIn", true);
             sessionStorage.setItem("userId", userId);
             sessionStorage.setItem("token", token);
-            toast.success("Successful");
+          }).then(() => {
+            toast.success("Signed In");
+            history.replace(from);
           })
-          history.replace(from);
         }
       })
       .catch(() => alert("There was an error, please try again"));

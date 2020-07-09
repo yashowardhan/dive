@@ -5,7 +5,7 @@ export const FETCH_ARTICLES = "FETCH_ARTICLES";
 // and returning the data to our payload.
 
 const fetchArticles = (dispatch) => {
-  fetch("https://e750daee-a709-46bf-b8c0-8d77077aee4e.mock.pstmn.io/post")
+  fetch("https://xandar.pinnium.in/api/dive-in/articles/?userId=5eca75d8e79555001d4d36f7")
     .then((res) => res.json())
     .then((res) => dispatch({ type: FETCH_ARTICLES, payload: res.result }));
 };

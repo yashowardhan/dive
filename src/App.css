@@ -49,19 +49,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 } */
 
+/* 1st group ka hexadecimals-
+#cfacff
+#5a12c0
+#ffefa1
+
+2nd group-
+#849ed6
+#f9c9de
+#009362
+
+3rd group-
+#cfacff
+#c13ace
+#ffec56
+
+4th group-
+#180064
+#cfacff
+#fff298 */
+
 .parent-card {
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
   justify-content: center;
   padding: 10px 10px;
+  background-color: #D3E3FC;
 }
 
 .MuiCardContent-root h2 {
-  color: rgba(0, 0, 0, 0.7019607843137254);
+  color: #314455;
   font-weight: bold;
 }
 .MuiCardContent-root p {
-  color: rgba(0, 0, 0, 0.54);
+  color: #314455;
   font-size: 13px;
 }
 .MuiCardHeader-content span {
@@ -71,15 +93,19 @@ body {
   flex: 1 0 21%;
   margin: 5px;
   margin-top: 20px;
+  background-color: #D3E3FC
 }
 .card-box {
   margin-top: 40px;
   display: flex;
+  height: 550px;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: #D3E3FC;
 }
 .card-box:hover {
   cursor: pointer;
+  background-color: #D3E3FC
 }
 /* .short-desc{
   max-height: 100px;

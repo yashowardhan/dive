@@ -21,6 +21,7 @@ import Popup from "../common/Popup";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    backgroundColor: '#E98074'
   },
   media: {
     height: 200,
@@ -33,6 +34,7 @@ function MediaCard(props) {
   useEffect(() => {
     // Update the document title using the browser API
     props.fetchArticles();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(props.articles, "articles working cool");
   const { articles } = props;
@@ -55,20 +57,20 @@ function MediaCard(props) {
                   </Typography>
                   <Typography
                     gutterBottom
-                    variant="h3"
+                    variant="h5"
                     component="p"
-                    style={{ color: "#3f51b5" }}
+                    style={{ color: "#6F2232", fontStyle: 'bold' }}
                   >
-                    By: {article.author}
+                    -{article.author}
                   </Typography>
 
                   <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#3f51b5" }}
+                    style={{ color: "#6F2232" }}
                   >
-                    Read time: {article.timeToRead} mins
+                    {article.timeToRead} min read.
                   </Typography>
                   <Typography
                     variant="body2"
@@ -77,9 +79,10 @@ function MediaCard(props) {
                   >
                     {article.description}
                   </Typography>
+                  <Popup url={article.url}></Popup>
                 </CardContent>
               </CardActionArea>
-              <CardActions>
+              {/* <CardActions>
                 <IconButton aria-label="add to favorites">
                   <FavoriteIcon fontSize="small" />
                 </IconButton>
@@ -92,11 +95,10 @@ function MediaCard(props) {
                 <IconButton aria-label="dislike">
                   <ThumbDownAltIcon></ThumbDownAltIcon>
                 </IconButton>
-                {/* <Button size="small" color="primary" onClick={props.fetchUsers}>
+                <Button size="small" color="primary" onClick={props.fetchUsers}>
                   Read time: {article.timeToRead}
-                </Button> */}
-                <Popup url={article.url}></Popup>
-              </CardActions>
+                </Button>
+              </CardActions> */}
             </Card>
           </React.Fragment>
         </div>

@@ -127,6 +127,7 @@ export default function SignUp() {
         if (res.status === 200) {
           res.json().then((res) => {
             toast.success("SuccessFully Registered");
+          }).then(() => {
             history.replace(from);
           })
         }
@@ -182,7 +183,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
-                //label="Email Address"
+                label="Email Address"
                 name="email"
                 InputProps={{
                   className: classes.input

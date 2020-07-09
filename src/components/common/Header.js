@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,11 +7,17 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "@material-ui/core/Link";
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 const CustomToolbar = withStyles({
   root: {
     color: "#DDEDE7",
-    backgroundColor: "#456E5E",
+    backgroundColor: "#6F2232"
+    //#5D001E
+    //logoUT:#123C69
   }
 })(Toolbar);
 
@@ -25,7 +31,6 @@ const CustomAppBar = withStyles({
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -37,6 +42,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
+  let  [,setState]=useState();
+  const userId = sessionStorage.getItem('userId');
+  let isLoggedIn = false;
+  if (userId) {
+    isLoggedIn = true;
+  }
+
+  const handleUpdate = () => {
+    //passing empty object will re-render the component
+   setState({});
+  
+  }
+
+  const logout = () => {
+    console.log("lalalala");
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('token');
+    setState({});
+  }
 
   return (
     <div className={classes.root}>
@@ -45,9 +70,13 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Flikc!
           </Typography>
-          <Link href="/signin" variant="body2" style={{ color: "white" }}>
+
+          {(isLoggedIn===false) && <Button href="/signin" style={{ color: "white" }} >
             {"Log In"}
-          </Link>
+          </Button>}
+          {isLoggedIn && <Button href="/signin" onClick={logout} style={{ color: "white" }} >
+            {"Sign Out"}
+          </Button>}
         </CustomToolbar>
       </CustomAppBar>
     </div>
