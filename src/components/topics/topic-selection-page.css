@@ -8,11 +8,11 @@
   height: 100vh;
   width: 100%;
   text-align: center;
-  background: #DDEDE7
+  background: #EFEBF8
 }
 
 .topic{
-  background: #B0BDB8;
+  background: #FFFFFF;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;
@@ -25,7 +25,7 @@
   display:table;
 }
 .selected-topic{
-  background: #9AB5BC;
+  background: #373546;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;
@@ -49,6 +49,7 @@
   padding-right:15px;
 }
 .selected-topic p{
+  color: #FFFFFF;
   margin: 0;
   height:100%;
   text-align: center;
@@ -61,7 +62,8 @@
 
 .next-btn{
   /* float: right; */
-  background: #456E5E;
+  background: #314455;
+  color: #FFFFFF;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;

@@ -75,7 +75,7 @@ body {
   height: 100%;
   justify-content: center;
   padding: 10px 10px;
-  background-color: #D3E3FC;
+  background-color: #EFEBF8;
 }
 
 .MuiCardContent-root h2 {
@@ -92,20 +92,23 @@ body {
 .parent-card .MuiPaper-root {
   flex: 1 0 21%;
   margin: 5px;
-  margin-top: 20px;
-  background-color: #D3E3FC
+  margin-top: 5px;
+  background-color: #FFFFFF;
+  border-radius: 5px
+
 }
 .card-box {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   height: 550px;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #D3E3FC;
+  background-color: #FFFFFF;
+  border-radius: 10px
 }
 .card-box:hover {
   cursor: pointer;
-  background-color: #D3E3FC
+  background-color: #FFFFFF
 }
 /* .short-desc{
   max-height: 100px;

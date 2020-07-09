@@ -52,23 +52,23 @@ function MediaCard(props) {
                   title="Contemplative Reptile"
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography gutterBottom variant="h5" component="h2" style={{ color: "#314455", fontStyle: 'bold' }}>
                     {article.name}
                   </Typography>
                   <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#6F2232", fontStyle: 'bold' }}
+                    style={{ color: "#373546", fontStyle: 'bold' }}
                   >
-                    -{article.author}
+                    {article.author}
                   </Typography>
 
                   <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#6F2232" }}
+                    style={{ color: "#373546" }}
                   >
                     {article.timeToRead} min read.
                   </Typography>

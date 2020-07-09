@@ -20,7 +20,7 @@ function getModalStyle() {
       margin:'auto',
       // left: `${left}%`,
       // transform: `translate(-${top}%, -${left}%)`,
-      backgroundColor: '#D3E3FC'
+      backgroundColor: '#FFFFFF'
     };
 }
 

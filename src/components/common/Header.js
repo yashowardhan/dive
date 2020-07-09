@@ -15,7 +15,7 @@ import {
 const CustomToolbar = withStyles({
   root: {
     color: "#DDEDE7",
-    backgroundColor: "#6F2232"
+    backgroundColor: "#3E3328"
     //#5D001E
     //logoUT:#123C69
   }
@@ -67,7 +67,7 @@ export default function Header() {
     <div className={classes.root}>
       <CustomAppBar position="static">
         <CustomToolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" style={{ color: "white" }} className={classes.title}>
             Flikc!
           </Typography>
 
