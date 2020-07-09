@@ -1,10 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Button } from "@material-ui/core";
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';  
 
 import Modal from "@material-ui/core/Modal";
 import { flexbox } from "@material-ui/system";
+import { isCatchClause } from "@babel/types";
+import { callbackify } from "util";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -20,17 +22,20 @@ function getModalStyle() {
       margin:'auto',
       // left: `${left}%`,
       // transform: `translate(-${top}%, -${left}%)`,
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FFFFFF',
+      display:'block'
     };
 }
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: 350,
+    width: "95%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
+    height: "93%",
+    display: 'block',
     // boxShadow: theme.shadows[5],
-    padding: theme.spacing(2 , 2, 2),
+    padding: theme.spacing(0 , 1, 1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -40,6 +45,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#456E5E',
       },
   },
+  iframe: {
+    height: '100%',
+    width: '95%'
+  },
+  grid: {
+    height: 'calc(100% - 32px)',
+    position: 'relative',
+  }
 }));
 
 export default function Popup(props) {
@@ -72,8 +85,9 @@ export default function Popup(props) {
         direction="row"
         justify="center"
         alignItems="center"
+        style={{height: 'calc(100% - 32px)', position: 'relative'}}
       >
-        <iframe src={props.url} height="600" width="800" alignItems='center' ma></iframe>
+        <iframe className={classes.iframe} src={props.url} ma></iframe>
       </Grid>
     </div>
   );
@@ -93,7 +107,7 @@ export default function Popup(props) {
       <Modal
         open={open}
         onClose={handleClose}
-        style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+        style={{height: 'flex', display:'flex',alignItems:'center',justifyContent:'center'}}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >

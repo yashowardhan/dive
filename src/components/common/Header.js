@@ -5,8 +5,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon"
+import Avatar from "@material-ui/core/Avatar";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "@material-ui/core/Link";
+import Logo from "../../../src/flikcLogo.jpeg"
 import {
   useHistory,
   useLocation
@@ -66,8 +69,10 @@ export default function Header() {
   return (
     <div className={classes.root}>
       <CustomAppBar position="static">
+        
         <CustomToolbar>
-          <Typography variant="h6" style={{ color: "white" }} className={classes.title}>
+        {/* <Avatar href="/" alt="Remy Sharp" src="../flikcLogo.jpeg" variant='square' className={classes.medium} /> */}
+          <Typography href="/" variant="h6" style={{ color: "white" }} className={classes.title}>
             Flikc!
           </Typography>
 
