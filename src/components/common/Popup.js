@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iframe: {
     height: '100%',
-    width: '95%'
+    width: '98%'
   },
   grid: {
     height: 'calc(100% - 32px)',
@@ -78,7 +78,7 @@ export default function Popup(props) {
         justify="flex-end"
         alignItems="flex-start"
       >
-      <Button size='small'  onClick={handleClose}>Close</Button>
+      <Button size='small' style={{ color: '#314455'}} onClick={handleClose}>Close</Button>
       </Grid>
       <Grid
         container

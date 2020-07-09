@@ -26,7 +26,7 @@ const themeDark = createMuiTheme({
       default: "#EFEBF8"
     },
     text: {
-      primary: '#456E5E'
+      primary: '#314455'
     }
   }
 });

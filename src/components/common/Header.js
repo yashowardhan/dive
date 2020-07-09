@@ -18,8 +18,8 @@ import {
 const CustomToolbar = withStyles({
   root: {
     color: "#DDEDE7",
-    backgroundColor: "#3E3328"
-    //#5D001E
+    backgroundColor: "#314455"
+    //#314455
     //logoUT:#123C69
   }
 })(Toolbar);
