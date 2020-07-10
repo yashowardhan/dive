@@ -18,33 +18,33 @@ import {
 
 const CustomTextTypography = withStyles({
   root: {
-    color: "#314455",
+    color: "#009362",
   }
 })(Typography);
 
 const CustomLink = withStyles({
   root: {
-    color: "#373546",
+    color: "#009362",
   }
 })(Link);
 
 const CustomTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: '#314455',
+      color: '#009362',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: '#314455',
+      borderBottomColor: '#009362',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
       '&:hover fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
     },
   },
@@ -54,7 +54,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="#373546">
+      <Link color="#009362">
         Flikc!
       </Link>{" "}
       {new Date().getFullYear()}
@@ -72,23 +72,23 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#EFEBF8"
+    backgroundColor: "#FFFFFF"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#314455",
+    backgroundColor: "#009362",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-    color: "#314455",
+    color: "#009362",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#314455",
+    backgroundColor: "#009362",
     color: "#FFFFFF",
       '&:hover': {
-        backgroundColor: '#456E5E',
+        backgroundColor: '#009362',
       },
   },
 }));

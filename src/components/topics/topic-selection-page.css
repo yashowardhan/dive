@@ -1,5 +1,5 @@
 .body{
-  background: #DDEDE7;
+  background: #FFFFFF;
   height: 100vh;
   width: 100%;
 }
@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100%;
   text-align: center;
-  background: #EFEBF8
+  background: #FFFFFF
 }
 
 .topic{
@@ -62,7 +62,7 @@
 
 .next-btn{
   /* float: right; */
-  background: #314455;
+  background: #009362;
   color: #FFFFFF;
   padding-top: 0px;
   padding-bottom: 0px;

@@ -18,33 +18,33 @@ import {
 
 const CustomTextTypography = withStyles({
   root: {
-    color: "#314455",
+    color: "#009362",
   }
 })(Typography);
 
 const CustomLink = withStyles({
   root: {
-    color: "#373546",
+    color: "#009362",
   }
 })(Link);
 
 const CustomTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: '#314455',
+      color: '#009362',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: '#314455',
+      borderBottomColor: '#009362',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
       '&:hover fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#314455',
+        borderColor: '#009362',
       },
     },
   },
@@ -52,44 +52,44 @@ const CustomTextField = withStyles({
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <CustomTextTypography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="#456E5E">
+      <CustomLink color="#009362">
         Flikc!
-      </Link>{" "}
+      </CustomLink>{" "}
       {new Date().getFullYear()}
       {"."}
-    </Typography>
+    </CustomTextTypography>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#EFEBF8"
+    backgroundColor: "#FFFFFF"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#314455",
+    backgroundColor: "#009362",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-    color: "red",
+    color: "#009362",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#314455",
+    backgroundColor: "#009362",
     color: "#FFFFFF",
-    '&:hover': {
-      backgroundColor: '#314455',
-    },
-  input: {
-    color: '#456E5E',
-    }
+      '&:hover': {
+        backgroundColor: '#009362',
+      },
   },
 }));
 

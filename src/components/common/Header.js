@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import Divider from '@material-ui/core/Divider';
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon"
 import Avatar from "@material-ui/core/Avatar";
@@ -19,7 +20,7 @@ import { borderColor } from "@material-ui/system";
 const CustomToolbar = withStyles({
   root: {
     color: "#DDEDE7",
-    backgroundColor: "#FFEBF4",
+    backgroundColor: "#FFFFFF",
     borderColor: "#000000",
     //#314455
     //logoUT:#123C69
@@ -43,6 +44,16 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  submit: {
+    margin: theme.spacing(0, 0, 0),
+    backgroundColor: "#009362",
+    fontSize: '12px',
+    color: "#FFFFFF",
+    '&:hover': {
+      backgroundColor: '#314455',
+    },
+    borderRadius: '20px',
+  }
 }));
 
 export default function Header() {
@@ -73,12 +84,12 @@ export default function Header() {
       <CustomAppBar position="static">
         
         <CustomToolbar>
-        {/* <Avatar href="/" alt="Remy Sharp" src="../flikcLogo.jpeg" variant='square' className={classes.medium} /> */}
+          <img src="https://res.cloudinary.com/dnfytuibw/image/upload/v1594384753/Flick_cglc4l.jpg" height="45px"/>
           <Typography href="/" variant="h6" style={{ color: "black" }} className={classes.title}>
-            Flikc!
+            
           </Typography>
 
-          {(isLoggedIn===false) && <Button href="/signin" style={{ color: "black" }} >
+          {(isLoggedIn===false) && <Button href="/signin" className={classes.submit} >
             {"Log In"}
           </Button>}
           {isLoggedIn && <Button href="/signin" onClick={logout} style={{ color: "black" }} >
@@ -86,6 +97,8 @@ export default function Header() {
           </Button>}
         </CustomToolbar>
       </CustomAppBar>
-    </div>
+      <Divider style={{backgroundColor: '#000000'}} dark />
+      </div>
+      
   );
 }
