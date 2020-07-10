@@ -30,7 +30,7 @@ const CustomToolbar = withStyles({
 const CustomAppBar = withStyles({
   root: {
     color: "#456E5E",
-    backgroundColor: "#456E5E",
+    backgroundColor: "#FFFFFF",
   }
 })(AppBar);
 
