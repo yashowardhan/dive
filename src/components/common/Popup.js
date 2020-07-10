@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: "98%",
     display: 'block',
     // boxShadow: theme.shadows[5],
-    padding: theme.spacing(0 , 0, 0),
+    padding: theme.spacing(0 , 0, 1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
