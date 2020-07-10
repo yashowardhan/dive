@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/home/index";
+import SignIn from "./components/signin/Signin"
 import SignUp from "./components/signup/SignUp";
 import MediaCard from "./components/card/Card";
 import Recommend from "./components/recommend/Recommend";
@@ -30,7 +31,8 @@ function App() {
       <MuiThemeProvider theme={themeDark}>
         <Switch>
           <Route exact path="/feed" component={MediaCard} />
-          <Route exact path="/signin" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/topics" component={Topic} />
           <Route path="/tags" component={Tags} />
