@@ -29,7 +29,7 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: "97%",
+    width: "100%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
     height: "98%",
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iframe: {
     height: '100%',
-    width: '98%'
+    width: '100%'
   },
   grid: {
     height: 'calc(100% - 32px)',
