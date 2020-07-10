@@ -92,12 +92,13 @@ export default function Header() {
           {(isLoggedIn===false) && <Button href="/signin" className={classes.submit} >
             {"Log In"}
           </Button>}
-          {isLoggedIn && <Button href="/signin" onClick={logout} style={{ color: "black" }} >
+          {isLoggedIn && <Button href="/signin" onClick={logout} className={classes.submit} >
             {"Sign Out"}
           </Button>}
         </CustomToolbar>
       </CustomAppBar>
-      <Divider style={{backgroundColor: '#000000'}} dark />
+      <Divider style={{backgroundColor: '#E7CABF'}} dark />
+      <Divider style={{backgroundColor: '#E7CABF'}} dark />
       </div>
       
   );
