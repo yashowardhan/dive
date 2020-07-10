@@ -7,6 +7,10 @@ import Modal from "@material-ui/core/Modal";
 import { flexbox } from "@material-ui/system";
 import { isCatchClause } from "@babel/types";
 import { callbackify } from "util";
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -58,13 +62,22 @@ const useStyles = makeStyles((theme) => ({
 export default function Popup(props) {
   console.log(props);
   const classes = useStyles();
+  const userId = sessionStorage.getItem('userId');
+  let history = useHistory();
+  let location = useLocation();
+
+  let { toSignIn } = location.state || { toSignIn: { pathname: "/signin" } };
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(false);
-    window.open(props.url);
+    if (userId) {
+      window.open(props.url);
+    } else {
+      history.push(toSignIn);
+    }
   };
 
   const handleClose = () => {

@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import Header from "../common/Header";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -133,6 +134,8 @@ export default function SignUp() {
   };
 
   return (
+    <div>
+      <Header/>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -230,5 +233,6 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
+    </div>
   );
 }

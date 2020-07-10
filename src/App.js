@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       
       <BrowserRouter>
       <MuiThemeProvider theme={themeDark}>

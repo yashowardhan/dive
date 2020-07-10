@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useReducer, Fragment, useEffect } from 'react';
 import { Row, Label, Input, Container, Button, Col } from 'reactstrap';
+import Header from "../common/Header";
 import { Link } from 'react-router-dom';
 import {
   useHistory,
@@ -96,7 +97,7 @@ export default function Topic() {
           }
     };
   getTopics();
-}, [userId]);
+}, [location.pathname, userId]);
 
   const saveSelectedTopics = () => {
     const userId = sessionStorage.getItem('userId');
@@ -113,7 +114,7 @@ export default function Topic() {
             }
           }).then((resp) => {
             if (resp.data.success) {
-                history.replace(from);
+                history.push(from);
             } else {
                 toast.error("Something went wrong. Try Again!");
             }
@@ -148,6 +149,8 @@ export default function Topic() {
   console.log(selectedTopics);
   console.log(allTopics);
   return (
+    <div>
+      <Header/>
     <Container>
       <div className='body'>
         <div className='logo'></div>
@@ -156,7 +159,7 @@ export default function Topic() {
             <Container>
             <br></br>
             <CustomTextTypography component="h1" variant="h5">
-                Select Topics
+                Select Topics To Follow:
             </CustomTextTypography>
             <br></br>
               {_.map(allTopics, (topic) => {
@@ -195,6 +198,7 @@ export default function Topic() {
         </div>
       </div >
     </Container>
+    </div>
 
   )
 

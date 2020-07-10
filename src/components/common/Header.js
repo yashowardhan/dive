@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,6 +16,7 @@ import {
   useLocation
 } from "react-router-dom";
 import { borderColor } from "@material-ui/system";
+import { render } from "@testing-library/react";
 
 const CustomToolbar = withStyles({
   root: {
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
     color: "#FFFFFF",
     '&:hover': {
-      backgroundColor: '#314455',
+      backgroundColor: '#009362',
     },
     borderRadius: '20px',
   }
@@ -59,17 +60,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
-  let  [,setState]=useState();
+  const [value, setValue] = useState(
+    sessionStorage.getItem('userId')
+  );
   const userId = sessionStorage.getItem('userId');
   let isLoggedIn = false;
   if (userId) {
     isLoggedIn = true;
-  }
-
-  const handleUpdate = () => {
-    //passing empty object will re-render the component
-   setState({});
-  
   }
 
   const logout = () => {
@@ -77,8 +74,13 @@ export default function Header() {
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('token');
-    setState({});
+    setValue({});
   }
+
+  useEffect(() => {
+    // Update the document title using the browser API
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -90,16 +92,16 @@ export default function Header() {
             
           </Typography>
 
-          {(isLoggedIn===false) && <Button href="/signin" className={classes.submit} >
+          {!userId && <Button href="/signin" className={classes.submit} >
             {"Sign In"}
           </Button>}
-          {isLoggedIn && <Button href="/signin" onClick={logout} className={classes.submit} >
+          {userId && <Button href="/signin" onClick={logout} className={classes.submit} >
             {"Sign Out"}
           </Button>}
         </CustomToolbar>
       </CustomAppBar>
-      <Divider style={{backgroundColor: '#DDDDDD'}} dark />
-      <Divider style={{backgroundColor: '#DDDDDD'}} dark />
+      <Divider style={{backgroundColor: '#DDDDDD'}} />
+      <Divider style={{backgroundColor: '#DDDDDD'}} />
       </div>
       
   );

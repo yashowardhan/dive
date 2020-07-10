@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
+import Header from "../common/Header";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
@@ -40,6 +41,8 @@ function MediaCard(props) {
   const { articles } = props;
   //console.log(users, "data in props");
   return (
+    <div>
+      <Header/>
     <div className="parent-card">
       {articles.map((article) => (
         <div className="card-box">
@@ -103,6 +106,7 @@ function MediaCard(props) {
           </React.Fragment>
         </div>
       ))}
+    </div>
     </div>
   );
 }

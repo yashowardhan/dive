@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import Header from "../common/Header";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -52,9 +53,9 @@ const CustomTextField = withStyles({
 
 function Copyright() {
   return (
-    <CustomTextTypography variant="body2" color="textSecondary" align="center">
+    <CustomTextTypography variant="body2" align="center">
       {"Copyright © "}
-      <CustomLink color="#009362">
+      <CustomLink>
         Flikc!
       </CustomLink>{" "}
       {new Date().getFullYear()}
@@ -99,7 +100,8 @@ export default function SignIn() {
   let history = useHistory();
   let location = useLocation();
 
-  let { from } = location.state || { from: { pathname: "/topics" } };
+  let { toTopics } = location.state || { toTopics: { pathname: "/topics" } };
+  let { toFeed } = location.state || { toFeed: { pathname: "/feed" } };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submit = (e) => {
@@ -122,13 +124,22 @@ export default function SignIn() {
         if (res.status === 200) {
           res.json().then((res) => {
             const { result } = res;
-            const { userId, token } = result
+            const { userId, token, categories } = result
             sessionStorage.setItem("isLoggedIn", true);
             sessionStorage.setItem("userId", userId);
             sessionStorage.setItem("token", token);
-          }).then(() => {
+            console.log("xxxxx", categories.length);
+            return { categories, userId };
+          }).then((res) => {
+            console.log("xxxxxxxxxxxx", res);
             toast.success("Signed In");
-            history.replace(from);
+            if (res.categories.length > 0) {
+              console.log("ssss");
+              history.push({ ...toTopics, state: { userId: res.userId }});
+            } else {
+              console.log("akakaka");
+              history.push({ ...toTopics, state: { userId: res.userId }});
+            }
           })
         }
       })
@@ -137,6 +148,8 @@ export default function SignIn() {
   };
 
   return (
+    <div>
+    <Header/>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -198,5 +211,6 @@ export default function SignIn() {
         <Copyright />
       </Box>
     </Container>
+    </div>
   );
 }
