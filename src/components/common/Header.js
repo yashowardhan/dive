@@ -97,8 +97,8 @@ export default function Header() {
           </Button>}
         </CustomToolbar>
       </CustomAppBar>
-      <Divider style={{backgroundColor: '#E7CABF'}} dark />
-      <Divider style={{backgroundColor: '#E7CABF'}} dark />
+      <Divider style={{backgroundColor: '#DDDDDD'}} dark />
+      <Divider style={{backgroundColor: '#DDDDDD'}} dark />
       </div>
       
   );

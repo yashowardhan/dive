@@ -103,7 +103,7 @@ body {
   height: 550px;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #E7CABF;
+  background-color: #DDDDDD;
   border-radius: 5px
 }
 .card-box:hover {
