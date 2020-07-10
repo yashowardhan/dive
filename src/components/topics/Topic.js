@@ -76,7 +76,6 @@ export default function Topic() {
         try {
             const response = await axios.get
               (`https://xandar.pinnium.in/api/dive-in/categories?userId=${userId}`);
-            console.log(response);
             if (response.data.success) {
               //debugger
               const topics = response.data.result;
@@ -93,7 +92,7 @@ export default function Topic() {
               });
             }
           } catch (error) {
-            console.error(error);
+            //
           }
     };
   getTopics();
@@ -146,8 +145,6 @@ export default function Topic() {
       }
     });
   }
-  console.log(selectedTopics);
-  console.log(allTopics);
   return (
     <div>
       <Header/>

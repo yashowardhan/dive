@@ -128,23 +128,18 @@ export default function SignIn() {
             sessionStorage.setItem("isLoggedIn", true);
             sessionStorage.setItem("userId", userId);
             sessionStorage.setItem("token", token);
-            console.log("xxxxx", categories.length);
             return { categories, userId };
           }).then((res) => {
-            console.log("xxxxxxxxxxxx", res);
             toast.success("Signed In");
             if (res.categories.length > 0) {
-              console.log("ssss");
-              history.push({ ...toTopics, state: { userId: res.userId }});
+              history.push({ ...toFeed, state: { userId: res.userId }});
             } else {
-              console.log("akakaka");
               history.push({ ...toTopics, state: { userId: res.userId }});
             }
           })
         }
       })
       .catch(() => alert("There was an error, please try again"));
-    console.log(e, "button clicked");
   };
 
   return (

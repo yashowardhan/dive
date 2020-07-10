@@ -6,7 +6,6 @@ export const FETCH_ARTICLES = "FETCH_ARTICLES";
 
 const fetchArticles = (dispatch) => {
   if (sessionStorage.getItem('userId')) {
-    console.log("xxxxadpadkapdkpadka");
     fetch(`https://xandar.pinnium.in/api/dive-in/articles/?userId=${sessionStorage.getItem('userId')}`)
     .then((res) => res.json())
     .then((res) => dispatch({ type: FETCH_ARTICLES, payload: res.result }));

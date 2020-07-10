@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Popup(props) {
-  console.log(props);
   const classes = useStyles();
   const userId = sessionStorage.getItem('userId');
   let history = useHistory();

@@ -70,7 +70,6 @@ export default function Header() {
   }
 
   const logout = () => {
-    console.log("lalalala");
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('token');
