@@ -31,6 +31,7 @@ const CustomAppBar = withStyles({
   root: {
     color: "#456E5E",
     backgroundColor: "#FFFFFF",
+    boxShadow: 'none'
   }
 })(AppBar);
 
@@ -90,7 +91,7 @@ export default function Header() {
           </Typography>
 
           {(isLoggedIn===false) && <Button href="/signin" className={classes.submit} >
-            {"Log In"}
+            {"Sign In"}
           </Button>}
           {isLoggedIn && <Button href="/signin" onClick={logout} className={classes.submit} >
             {"Sign Out"}

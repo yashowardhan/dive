@@ -52,14 +52,14 @@ const CustomTextField = withStyles({
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <CustomTextTypography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="#009362">
+      <CustomLink color="#009362">
         Flikc!
-      </Link>{" "}
+      </CustomLink>{" "}
       {new Date().getFullYear()}
       {"."}
-    </Typography>
+    </CustomTextTypography>
   );
 }
 
@@ -68,11 +68,12 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
+    width: '100%'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -142,6 +143,7 @@ export default function SignIn() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
+        {/* <img src="https://res.cloudinary.com/dnfytuibw/image/upload/v1594384753/Flick_cglc4l.jpg" height="100px"/> */}
         <CustomTextTypography component="h1" variant="h5">
           Sign in
         </CustomTextTypography>

@@ -47,6 +47,7 @@
   display: table-cell;
   padding-left:15px;
   padding-right:15px;
+  
 }
 .selected-topic p{
   color: #009362;
@@ -54,7 +55,7 @@
   height:100%;
   text-align: center;
   line-height: 58px;
-  width:70%;
+  width:100%;
   display: table-cell;
   padding-left:15px;
   padding-right:15px;

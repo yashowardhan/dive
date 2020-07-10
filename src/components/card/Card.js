@@ -21,7 +21,7 @@ import Popup from "../common/Popup";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    backgroundColor: '#E98074'
+    backgroundColor: '#FFFFFF'
   },
   media: {
     height: 200,
@@ -70,7 +70,7 @@ function MediaCard(props) {
                     component="p"
                     style={{ color: "#5A12C0" }}
                   >
-                    {article.timeToRead} min read.
+                    {article.timeToRead} min read
                   </Typography>
                   <Typography
                     variant="body2"
