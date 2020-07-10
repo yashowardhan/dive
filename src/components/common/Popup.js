@@ -63,7 +63,8 @@ export default function Popup(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
-    setOpen(true);
+    setOpen(false);
+    window.open(props.url);
   };
 
   const handleClose = () => {
