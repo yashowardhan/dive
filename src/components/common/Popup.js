@@ -29,10 +29,10 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: "95%",
+    width: "97%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
-    height: "93%",
+    height: "98%",
     display: 'block',
     // boxShadow: theme.shadows[5],
     padding: theme.spacing(0 , 1, 1),
