@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#314455",
+    backgroundColor: "#009362",
     color: "DDEDE7",
       '&:hover': {
         backgroundColor: '#456E5E',
@@ -79,7 +79,7 @@ export default function Popup(props) {
         justify="flex-end"
         alignItems="flex-start"
       >
-      <Button size='small' style={{ color: '#314455'}} onClick={handleClose}>Close</Button>
+      <Button size='small' style={{ color: '#D000E4'}} onClick={handleClose}>Close</Button>
       </Grid>
       <Grid
         container

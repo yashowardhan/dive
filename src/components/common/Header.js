@@ -14,11 +14,13 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
+import { borderColor } from "@material-ui/system";
 
 const CustomToolbar = withStyles({
   root: {
     color: "#DDEDE7",
-    backgroundColor: "#314455"
+    backgroundColor: "#FFEBF4",
+    borderColor: "#000000",
     //#314455
     //logoUT:#123C69
   }
@@ -72,14 +74,14 @@ export default function Header() {
         
         <CustomToolbar>
         {/* <Avatar href="/" alt="Remy Sharp" src="../flikcLogo.jpeg" variant='square' className={classes.medium} /> */}
-          <Typography href="/" variant="h6" style={{ color: "white" }} className={classes.title}>
+          <Typography href="/" variant="h6" style={{ color: "black" }} className={classes.title}>
             Flikc!
           </Typography>
 
-          {(isLoggedIn===false) && <Button href="/signin" style={{ color: "white" }} >
+          {(isLoggedIn===false) && <Button href="/signin" style={{ color: "black" }} >
             {"Log In"}
           </Button>}
-          {isLoggedIn && <Button href="/signin" onClick={logout} style={{ color: "white" }} >
+          {isLoggedIn && <Button href="/signin" onClick={logout} style={{ color: "black" }} >
             {"Sign Out"}
           </Button>}
         </CustomToolbar>
