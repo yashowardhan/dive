@@ -25,7 +25,7 @@
   display:table;
 }
 .selected-topic{
-  background: #373546;
+  background: #FFFFFF;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 5px;
@@ -33,7 +33,7 @@
   height:20px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid grey;
+  border: 1px solid #009362;
   border-radius: 10px;
   display:table;
 }
@@ -49,7 +49,7 @@
   padding-right:15px;
 }
 .selected-topic p{
-  color: #FFFFFF;
+  color: #009362;
   margin: 0;
   height:100%;
   text-align: center;
