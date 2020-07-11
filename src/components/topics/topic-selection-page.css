@@ -23,6 +23,7 @@
   border: 1px solid grey;
   border-radius: 13px;
   display:table;
+  max-width: 300px;
 }
 .selected-topic{
   background: #FFFFFF;
@@ -36,6 +37,7 @@
   border: 1.5px solid #009362;
   border-radius: 10px;
   display:table;
+  max-width: 300px;
 }
 
 .topic p{
@@ -75,4 +77,5 @@
   border: 1px solid grey;
   border-radius: 30px;
   display:table;
+  max-width: 200px;
 }

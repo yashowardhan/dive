@@ -16,7 +16,7 @@ import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 
 const CustomTextTypography = withStyles({
     root: {
-      color: "#314455",
+      color: "#000000",
     }
   })(Typography);
 

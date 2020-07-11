@@ -73,6 +73,12 @@ function MediaCard(props) {
             Edit Topics
     </Button>}
     </Grid>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+    >
     <div className="parent-card">
       {articles.map((article) => (
         <div className="card-box">
@@ -137,6 +143,7 @@ function MediaCard(props) {
         </div>
       ))}
     </div>
+    </Grid>
     </div>
   );
 }
