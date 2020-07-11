@@ -18,8 +18,9 @@ import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
 import fetchArticles from "../../store/actions/fetchArticles";
 import Popup from "../common/Popup";
+import { Grid } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     backgroundColor: '#FFFFFF'
@@ -27,7 +28,16 @@ const useStyles = makeStyles({
   media: {
     height: 200,
   },
-});
+  topic: {
+    margin: theme.spacing(1, 0, 0),
+    backgroundColor: "#FFFFFF",
+    borderColor: '#009362',
+    color: "#009362",
+      '&:hover': {
+        backgroundColor: '#009362',
+      },
+  },
+}));
 
 function MediaCard(props) {
   const classes = useStyles();
@@ -43,6 +53,25 @@ function MediaCard(props) {
   return (
     <div>
       <Header/>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+    >
+    <Button
+            type="submit"
+            href="/topics"
+            width="50%"
+            border="1px"
+            variant="outlined"
+            color="#009362"
+            justifyContent="center"
+            className={classes.topic}
+          >
+            Edit Topics
+    </Button>
+    </Grid>
     <div className="parent-card">
       {articles.map((article) => (
         <div className="card-box">
