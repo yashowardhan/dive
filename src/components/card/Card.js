@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#009362",
       '&:hover': {
         backgroundColor: '#009362',
+        color: '#FFFFFF'
       },
   },
 }));
@@ -59,7 +60,7 @@ function MediaCard(props) {
       justify="center"
       alignItems="center"
     >
-    <Button
+    {sessionStorage.getItem('userId') && <Button
             type="submit"
             href="/topics"
             width="50%"
@@ -70,7 +71,7 @@ function MediaCard(props) {
             className={classes.topic}
           >
             Edit Topics
-    </Button>
+    </Button>}
     </Grid>
     <div className="parent-card">
       {articles.map((article) => (
