@@ -87,7 +87,7 @@ function MediaCard(props) {
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={article.imageUrl}
+                  image={article.imageUrl || "https://res.cloudinary.com/dnfytuibw/image/upload/v1594554749/Product/1_6ge3gXH51icSvin7oV-4-Q_ziduln.png"}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
