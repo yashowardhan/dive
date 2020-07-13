@@ -99,7 +99,7 @@ function MediaCard(props) {
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#5A12C0", fontStyle: 'bold' }}
+                    style={{ color: "#B0B0B0", fontStyle: 'bold' }}
                   >
                     {article.author}
                   </Typography>
@@ -108,9 +108,9 @@ function MediaCard(props) {
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#5A12C0" }}
+                    style={{ color: "#B0B0B0" }}
                   >
-                    {article.timeToRead} min read
+                    {article.categoryName} | {article.timeToRead} min read
                   </Typography>
                   <Typography
                     variant="body2"
