@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 200,
+    width: 345,
   },
   topic: {
     margin: theme.spacing(1, 0, 0),
@@ -118,7 +119,7 @@ function MediaCard(props) {
                   >
                     {article.description}
                   </Typography>
-                  <Popup url={article.url}></Popup>
+                  <Popup url={article.url} articleId={article._id}></Popup>
                 </CardContent>
               </CardActionArea>
               {/* <CardActions>

@@ -72,7 +72,13 @@ export default function Popup(props) {
 
   const handleOpen = () => {
     setOpen(false);
+    const { articleId } = props;
     if (userId) {
+      fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId  }),
+    });
       window.open(props.url);
     } else {
       history.push(toSignIn);
