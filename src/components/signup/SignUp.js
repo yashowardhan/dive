@@ -106,10 +106,8 @@ export default function SignUp() {
   const [confirmPassword, setConfrimPassword] = useState("");
 
   const submit = (e) => {
-    if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
-    } else {
       e.preventDefault();
+      
     fetch(`https://xandar.pinnium.in/api/dive-in/users/`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
@@ -133,8 +131,8 @@ export default function SignUp() {
           })
         }
       })
-      .catch(() => alert("There was an error, please try again"));
-    }
+      .catch((err) => alert(err));
+  
   };
 
   return (
@@ -174,7 +172,7 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
                 value = {email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.trim())}
               />
             </Grid>
             <Grid item xs={12}>
@@ -190,20 +188,6 @@ export default function SignUp() {
                 autoComplete="current-password"
                 value = {password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <CustomTextField
-                variant="outlined"
-                required
-                fullWidth
-                id="confirmPassword"
-                label="Confirm Password"
-                name="confirmPassword"
-                type="password"
-                autoComplete="lname"
-                value = {confirmPassword}
-                onChange={(e) => setConfrimPassword(e.target.value)}
               />
             </Grid>
           </Grid>
