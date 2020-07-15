@@ -151,7 +151,7 @@ export default function SignUp() {
         </CustomTextTypography>
         <form noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <CustomTextField
                 autoComplete="fname"
                 name="name"
@@ -160,7 +160,6 @@ export default function SignUp() {
                 fullWidth
                 id="Name"
                 label="Name"
-                autoFocus
                 value = {name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -173,9 +172,6 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                InputProps={{
-                  className: classes.input
-                }}
                 autoComplete="email"
                 value = {email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -196,7 +192,7 @@ export default function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <CustomTextField
                 variant="outlined"
                 required
@@ -204,10 +200,8 @@ export default function SignUp() {
                 id="confirmPassword"
                 label="Confirm Password"
                 name="confirmPassword"
+                type="password"
                 autoComplete="lname"
-                InputProps={{
-                  className: classes.input
-                }}
                 value = {confirmPassword}
                 onChange={(e) => setConfrimPassword(e.target.value)}
               />
