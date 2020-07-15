@@ -103,14 +103,17 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+  const [confirmPassword, setConfrimPassword] = useState("");
 
   const submit = (e) => {
-    e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else {
+      e.preventDefault();
     fetch(`https://xandar.pinnium.in/api/dive-in/users/`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, username, email, password }),
+      body: JSON.stringify({ name, email, password }),
     })
       .then((res) => {
         if (res.status === 400) {
@@ -131,6 +134,7 @@ export default function SignUp() {
         }
       })
       .catch(() => alert("There was an error, please try again"));
+    }
   };
 
   return (
@@ -166,15 +170,15 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
-                label="Username"
-                name="username"
+                id="confirmPassword"
+                label="Confirm Password"
+                name="confirmPassword"
                 autoComplete="lname"
                 InputProps={{
                   className: classes.input
                 }}
-                value = {username}
-                onChange={(e) => setUsername(e.target.value)}
+                value = {confirmPassword}
+                onChange={(e) => setConfrimPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -227,7 +231,6 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
-        <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
       </div>
       <Box mt={5}>
         <Copyright />

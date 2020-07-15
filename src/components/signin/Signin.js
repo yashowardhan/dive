@@ -200,7 +200,6 @@ export default function SignIn() {
             </Grid>
           </Grid>
         </form> 
-        <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
       </div>
       <Box mt={8}>
         <Copyright />

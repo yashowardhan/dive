@@ -8,6 +8,7 @@ import Recommend from "./components/recommend/Recommend";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Tags from "./components/common/Tags";
 import "./App.css";
 
@@ -44,7 +45,7 @@ function App() {
         </Switch>
         </MuiThemeProvider>
       </BrowserRouter>
-      
+      <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
 
       {/* <Footer /> */}
     </div>
