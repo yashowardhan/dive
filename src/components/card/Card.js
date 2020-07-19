@@ -18,7 +18,7 @@ import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
 import fetchArticles from "../../store/actions/fetchArticles";
 import Popup from "../common/Popup";
-import { Grid } from "@material-ui/core";
+import { Grid, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -112,12 +112,37 @@ function MediaCard(props) {
                   >
                     {article.categoryName} | {article.timeToRead} min read
                   </Typography>
+                  <Divider />
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    style={{ color: "#807e7e" }}
+                  >
+                    Description:
+                  </Typography>
                   <Typography
                     variant="body2"
                     color="textSecondary"
                     component="p"
                   >
                     {article.description}
+                  </Typography>
+                  <Divider />
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    style={{ color: "#807e7e" }}
+                  >
+                    Learn About:
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {article.learnings}
                   </Typography>
                   <Popup url={article.url} articleId={article._id}></Popup>
                 </CardContent>
