@@ -117,7 +117,7 @@ function MediaCard(props) {
                     variant="body2"
                     color="textSecondary"
                     component="p"
-                    style={{ color: "#807e7e" }}
+                    style={{ color: "#807e7e", paddingTop: '6px' }}
                   >
                     Description:
                   </Typography>
@@ -128,12 +128,12 @@ function MediaCard(props) {
                   >
                     {article.description}
                   </Typography>
-                  <Divider />
+                  
                   <Typography
                     variant="body2"
                     color="textSecondary"
                     component="p"
-                    style={{ color: "#807e7e" }}
+                    style={{ color: "#807e7e", paddingTop: '6px' }}
                   >
                     Learn About:
                   </Typography>
