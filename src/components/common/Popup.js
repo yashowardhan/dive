@@ -123,7 +123,7 @@ export default function Popup(props) {
   const userId = sessionStorage.getItem('userId');
   let history = useHistory();
   let location = useLocation();
-  const { article, isBookmarked, isLiked, isTag, selectedTag } = props;
+  const { article, isBookmarked, isLiked, isTag, selectedTag, setSelectedTag } = props;
   console.log("djajsdbnjasldnlasndasld",article);
 
   let { toSignIn } = location.state || { toSignIn: { pathname: "/signin" } };
@@ -180,7 +180,9 @@ export default function Popup(props) {
     setOpen(false);
   };
   const goToTagPage = (tag, event) => {
-    history.push({ pathname: `/tags/${tag}`})
+    // history.replace({ pathname: `/tags/${tag}/123`})
+    window.location = `/tags/${tag}`;
+    event.stopPropagation();
   }
   const goToAuthorPage = (event) => {
     window.open(article.authorUrl);
@@ -295,7 +297,7 @@ export default function Popup(props) {
           const hrefTag = `/tags/${tag}`;
           return (
             <Chip
-        label={tag} href={hrefTag} value={tag} clickable variant="outlined" size="small" className={classes.chip} onClick={() => goToTagPage(tag)}
+        label={tag} href={hrefTag} value={tag} clickable variant="outlined" size="small" className={classes.chip} onClick={(e) => goToTagPage(tag,e)}
           />
           );
         }
@@ -309,7 +311,7 @@ export default function Popup(props) {
           if (tag !== "") {
             return (
               <Chip
-          label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chip} onClick={() => goToTagPage(tag)}
+          label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chip} onClick={(e) => goToTagPage(tag, e)}
             />);
           }
         }

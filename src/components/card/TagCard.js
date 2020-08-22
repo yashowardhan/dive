@@ -151,7 +151,7 @@ function TagCard(props) {
     <div className="parent-card">
       {articles && articles.map((article) => (
         <div className="card-box">
-          <Popup article={article} isBookmarked={article.isBookmarked} isLiked={article.isLiked} isTag={true} selectedTag={tag}></Popup>
+          <Popup article={article} isBookmarked={article.isBookmarked} isLiked={article.isLiked} isTag={true} selectedTag={tag} ></Popup>
         </div>
       ))}
     </div>
