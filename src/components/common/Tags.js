@@ -100,7 +100,7 @@
 //           native
 //           value={personName}
 //           onChange={handleChangeMultiple}
-//           inputProps={{
+//           inputProps={{                                        
 //             id: "select-multiple-native",
 //           }}
 //         >
@@ -156,7 +156,7 @@ function Tags(props) {
   useEffect(() => {
     // Update the document title using the browser API
     props.fetchTopics();
-  }, []);
+  }, [props]);
   console.log(props.topics, "topics rendering");
   const { topics } = props;
 
@@ -171,7 +171,6 @@ function Tags(props) {
   return (
     <div className={classes.root}>
       <Chip
-        avatar={<Avatar>S</Avatar>}
         label="Select Topics"
         //onDelete={handleDelete}
         style={{ marginTop: "2rem" }}
@@ -180,32 +179,14 @@ function Tags(props) {
       {topics.map((topic) => {
         return (
           <Chip
-            avatar={<Avatar>T</Avatar>}
             label={topic.name}
             clickable
             color="primary"
-            onDelete={handleDelete}
+            //onDelete={handleDelete}
             style={{ marginTop: "2rem" }}
-            deleteIcon={<DoneIcon />}
           />
         );
       })}
-
-      {/* <Chip
-        icon={<FaceIcon />}
-        label="Primary clickable"
-        clickable
-        color="primary"
-        onDelete={handleDelete}
-        deleteIcon={<DoneIcon />}
-      />
-      <Chip label="Deletable primary" onDelete={handleDelete} color="primary" />
-      <Chip
-        icon={<FaceIcon />}
-        label="Deletable secondary"
-        onDelete={handleDelete}
-        color="secondary"
-      /> */}
     </div>
   );
 }

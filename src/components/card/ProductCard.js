@@ -16,7 +16,7 @@ import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import { connect } from "react-redux";
 import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
-import fetchArticles from "../../store/actions/fetchArticles";
+import fetchArticlesProduct from "../../store/actions/fetchArticlesProduct";
 import Popup from "../common/Popup";
 import { Grid, GridList, Divider } from "@material-ui/core";
 
@@ -55,12 +55,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function MediaCard(props) {
+function MediaCardProduct(props) {
   const classes = useStyles();
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     // Update the document title using the browser API
-    props.fetchArticles();
+    props.fetchArticlesProduct();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(props.articles, "articles working cool");
@@ -83,9 +83,9 @@ function MediaCard(props) {
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.topic}
+            color="#009362"
+            justifyContent="center"
+            className={classes.selectedTopic}
           >
             Product
     </Button>}
@@ -95,8 +95,8 @@ function MediaCard(props) {
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
+            color="#009362"
+            justifyContent="center"
             className={classes.topic}
           >
             Business and Strategy
@@ -107,9 +107,9 @@ function MediaCard(props) {
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.selectedTopic}
+            color="#009362"
+            justifyContent="center"
+            className={classes.topic}
           >
             All
     </Button>}
@@ -147,8 +147,8 @@ const MapDispatchToProps = (dispatch) => {
   return {
     updatePosts: () => dispatch(updatePosts),
     fetchUsers: () => dispatch(fetchUsers),
-    fetchArticles: (y) => dispatch(fetchArticles(y)),
+    fetchArticlesProduct: () => dispatch(fetchArticlesProduct),
   };
 };
 
-export default connect(MapStateToProps, MapDispatchToProps)(MediaCard);
+export default connect(MapStateToProps, MapDispatchToProps)(MediaCardProduct);

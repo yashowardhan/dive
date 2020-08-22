@@ -3,7 +3,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/home/index";
 import SignIn from "./components/signin/Signin"
 import SignUp from "./components/signup/SignUp";
+import TagCard from "./components/card/TagCard";
 import MediaCard from "./components/card/Card";
+import MediaCardBusiness from "./components/card/BusinessCard";
+import MediaCardProduct from "./components/card/ProductCard";
 import Recommend from "./components/recommend/Recommend";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
@@ -19,6 +22,13 @@ const themeDark = createMuiTheme({
     },
     text: {
       primary: '#000000'
+    }
+  },
+  props: {
+    // Name of the component
+    MuiButtonBase: {
+      // The properties to apply
+      disableRipple: true // No more ripple, on the whole application!
     }
   }
 });
@@ -36,7 +46,9 @@ function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/topics" component={Topic} />
-          <Route path="/tags" component={Tags} />
+          <Route path="/tags/:selectedTag" component={TagCard} />
+          <Route exact path="/feed/product" component={MediaCardProduct} />
+          <Route exact path="/feed/business-and-strategy" component={MediaCardBusiness} />
           {/* <Route path="/topics" component={Topics} /> */}
           <Route path="/recommend" component={Recommend} />
           {/* <Route path="/course/:slug" component={ManageCoursePage} />
