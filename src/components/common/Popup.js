@@ -108,6 +108,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:'#FFFFFF',
     marginRight: '2px',
     marginBottom: '5px',
+    height: '20px',
   },
   chipSelected: {
     borderColor: '#009362',
@@ -115,6 +116,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:'#009362',
     marginRight: '2px',
     marginBottom: '5px',
+    height: '20px',
   },
   focusHighlight: {}
 }));
@@ -266,14 +268,17 @@ export default function Popup(props) {
           <Typography onClick={handleOpen} gutterBottom variant="h5" component="h2" style={{ color: "#314455", fontStyle: 'bold', alignSelf: 'center', marginLeft: '25px', marginRight: '25px', marginTop: '15px' }}>
                     {article.name}
                   </Typography>
-                  {/* <Typography
+                  <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#807e7e", fontStyle: 'bold', alignSelf: 'left' }}
+                    style={{ color: "#2b2b2b", fontSize: '15px',  fontStyle: 'bold', marginLeft: '25px', width: 'max-content', textDecoration: 'underline' }}
+                    onClick={goToAuthorPage}
                   >
-                    {article.author}
-                  </Typography> */}
+                    By {article.author}
+                  </Typography>
+                  
+                  
           {article.description && article.description.map((para) => {
         return (
           <Typography
@@ -321,10 +326,10 @@ export default function Popup(props) {
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#2b2b2b", fontStyle: 'bold', marginLeft: '10px', width: 'max-content' }}
+                    style={{ color: "#2b2b2b", fontStyle: 'bold', marginLeft: '10px', width: 'max-content', textDecoration: 'underline' }}
                     onClick={goToAuthorPage}
                   >
-                    {article.author}
+                    By {article.author}
                   </Typography>
 
                   <Typography
@@ -349,7 +354,7 @@ export default function Popup(props) {
           const hrefTag = `/tags/${tag}`;
           return (
             <Chip
-        label={tag} href={hrefTag} value={tag} clickable variant="outlined" size="small" className={classes.chip} onClick={(e) => goToTagPage(tag,e)}
+        label={tag} href={hrefTag} value={tag} clickable variant="outlined" size="small" elevation={3} className={classes.chip} onClick={(e) => goToTagPage(tag,e)}
           />
           );
         }
