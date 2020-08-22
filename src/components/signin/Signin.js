@@ -130,7 +130,7 @@ export default function SignIn() {
             sessionStorage.setItem("token", token);
             return { categories, userId };
           }).then((res) => {
-            toast.success("Signed In");
+            // toast.success("Signed In");
               history.push({ ...toFeed, state: { userId: res.userId }});
           })
         }
