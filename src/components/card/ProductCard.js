@@ -77,6 +77,18 @@ function MediaCardProduct(props) {
       overflow="auto"
       style={{ overflowX: 'auto'}}
     >
+      {sessionStorage.getItem('userId') && <Button
+            type="submit"
+            href="/feed"
+            width="50%"
+            border="1px"
+            variant="outlined"
+            color="#009362"
+            justifyContent="center"
+            className={classes.topic}
+          >
+            All
+    </Button>}
     {sessionStorage.getItem('userId') && <Button
             type="submit"
             href="/feed/product"
@@ -100,18 +112,6 @@ function MediaCardProduct(props) {
             className={classes.topic}
           >
             Business and Strategy
-    </Button>}
-    {sessionStorage.getItem('userId') && <Button
-            type="submit"
-            href="/feed"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            color="#009362"
-            justifyContent="center"
-            className={classes.topic}
-          >
-            All
     </Button>}
     </Grid>
     <Divider />

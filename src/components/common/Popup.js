@@ -53,11 +53,12 @@ const useStyles = makeStyles((theme) => ({
     width: "90%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
-    height: "auto",
+    height: "80%",
     // maxHeight: '90%',
     display: 'block',
     // boxShadow: theme.shadows[5],
     padding: theme.spacing(0 , 0, 1),
+    overflowX: 'scroll',
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -178,7 +179,7 @@ export default function Popup(props) {
   const modalClose = () => {
     setOpen(false);
   };
-  const goToTagPage = (tag) => {
+  const goToTagPage = (tag, event) => {
     history.push({ pathname: `/tags/${tag}`})
   }
   const goToAuthorPage = (event) => {
@@ -249,7 +250,7 @@ export default function Popup(props) {
     <div>
       <React.Fragment>
             {props.article && <Card className={classes.root}>
-              <CardActionArea  classes={{
+              <CardActionArea  onClick={modalOpen} classes={{
           root: classes.actionArea,
           focusHighlight: classes.focusHighlight
         }} >
@@ -259,7 +260,7 @@ export default function Popup(props) {
                   title="Contemplative Reptile"
                 />
                 <CardContent style={{ padding: '0px'}}>
-                  <Typography gutterBottom variant="h5" onClick={modalOpen} component="h2" style={{ color: "#1A1A1A", fontStyle: 'bold', marginLeft: '10px' }}>
+                  <Typography gutterBottom variant="h5" component="h2" style={{ color: "#1A1A1A", fontStyle: 'bold', marginLeft: '10px' }}>
                     {article.name}
                   </Typography>
                   <Typography
@@ -303,12 +304,12 @@ export default function Popup(props) {
         if (tag === selectedTag && tag !== "") {
           return (
           <Chip
-      label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chipSelected}
+      label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chipSelected} 
         />);} else {
           if (tag !== "") {
             return (
               <Chip
-          label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chip} 
+          label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chip} onClick={() => goToTagPage(tag)}
             />);
           }
         }

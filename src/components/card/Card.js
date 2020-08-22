@@ -79,6 +79,18 @@ function MediaCard(props) {
     >
     {sessionStorage.getItem('userId') && <Button
             type="submit"
+            href="/feed"
+            width="50%"
+            border="1px"
+            variant="outlined"
+            // color="#009362"
+            //justifyContent="center"
+            className={classes.selectedTopic}
+          >
+            All
+    </Button>}
+    {sessionStorage.getItem('userId') && <Button
+            type="submit"
             href="/feed/product"
             width="50%"
             border="1px"
@@ -100,18 +112,6 @@ function MediaCard(props) {
             className={classes.topic}
           >
             Business and Strategy
-    </Button>}
-    {sessionStorage.getItem('userId') && <Button
-            type="submit"
-            href="/feed"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.selectedTopic}
-          >
-            All
     </Button>}
     </Grid>
     <Divider />

@@ -131,11 +131,7 @@ export default function SignIn() {
             return { categories, userId };
           }).then((res) => {
             toast.success("Signed In");
-            if (res.categories.length > 0) {
               history.push({ ...toFeed, state: { userId: res.userId }});
-            } else {
-              history.push({ ...toTopics, state: { userId: res.userId }});
-            }
           })
         }
       })
