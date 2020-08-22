@@ -40,7 +40,7 @@ function getModalStyle() {
 
     return {
       top: `${top}%`,
-      margin:'auto',
+      //margin:'auto',
       // left: `${left}%`,
       // transform: `translate(-${top}%, -${left}%)`,
       backgroundColor: '#FFFFFF',
@@ -56,8 +56,9 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
     // maxHeight: '90%',
     display: 'block',
+    outline: 'none',
     // boxShadow: theme.shadows[5],
-    padding: theme.spacing(0 , 0, 1),
+    padding: theme.spacing(0 , 0, 0),
     overflowX: 'scroll',
   },
   submit: {
@@ -139,19 +140,51 @@ export default function Popup(props) {
   // }
 
   const handleBookmark = () => {
+    const { _id: articleId } = article;
+    if (!sessionStorage.getItem('userId')) {
+      history.push(toSignIn);
+      return;
+    }
     if (bookmark === true) {
       setBookmark(false);
+      fetch(`https://xandar.pinnium.in/api/dive-in/articles/activity`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, isBookmarked: false  }),
+    });
     } else {
       setBookmark(true);
+      fetch(`https://xandar.pinnium.in/api/dive-in/articles/activity`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, isBookmarked: true  }),
+    });
     }
   }
 
   const handleLike = () => {
+    const { _id: articleId } = article;
+    if (!sessionStorage.getItem('userId')) {
+      history.push(toSignIn);
+      return;
+    }
     if (like === true) {
       setLike(false);
+      fetch(`https://xandar.pinnium.in/api/dive-in/articles/activity`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, isLiked: false  }),
+    });
     } else {
       setLike(true);
+      fetch(`https://xandar.pinnium.in/api/dive-in/articles/activity`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, isLiked: true  }),
+    });
     }
+    
+    
   }
 
   const handleOpen = () => {
@@ -162,18 +195,24 @@ export default function Popup(props) {
       fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId  }),
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, analyticType: 'OPEN_ARTICLE'  }),
     });
       window.open(article.url);
     } else {
       history.push(toSignIn);
     }
   };
+
   const modalOpen = () => {
     setOpen(false);
     const { article } = props;
     const { _id: articleId } = article;
-      setOpen(true);
+    fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, analyticType: 'MODAL_OPEN'  }),
+    });
+    setOpen(true);
   };
 
   const modalClose = () => {
@@ -181,11 +220,24 @@ export default function Popup(props) {
   };
   const goToTagPage = (tag, event) => {
     // history.replace({ pathname: `/tags/${tag}/123`})
-    window.location = `/tags/${tag}`;
+    const { _id: articleId } = article;
+    fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, analyticType: 'SELECT_TAG', tag  }),
+    }).then(() => {
+      window.location = `/tags/${tag}`;
+    });
     event.stopPropagation();
   }
   const goToAuthorPage = (event) => {
     window.open(article.authorUrl);
+    const { _id: articleId } = article;
+    fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, analyticType: 'AUTHOR_CLICK'  }),
+    });
     event.stopPropagation();
   };
 
@@ -269,7 +321,7 @@ export default function Popup(props) {
                     gutterBottom
                     variant="h5"
                     component="p"
-                    style={{ color: "#2b2b2b", fontStyle: 'bold', marginLeft: '10px' }}
+                    style={{ color: "#2b2b2b", fontStyle: 'bold', marginLeft: '10px', width: 'max-content' }}
                     onClick={goToAuthorPage}
                   >
                     {article.author}
