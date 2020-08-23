@@ -6,6 +6,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import Header from "../common/Header";
+import Fab from '@material-ui/core/Fab';
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
@@ -103,20 +104,28 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   chip: {
+    border: '1px solid',
     borderColor: '#009362',
     color: '#009362',
     backgroundColor:'#FFFFFF',
     marginRight: '2px',
     marginBottom: '5px',
+    fontSize: '12px',
     height: '20px',
+    textTransform: 'unset',
+    padding: '0px 10px',
   },
   chipSelected: {
+    border: '1px solid',
     borderColor: '#009362',
     color: '#FFFFFF',
     backgroundColor:'#009362',
     marginRight: '2px',
     marginBottom: '5px',
+    fontSize: '12px',
     height: '20px',
+    textTransform: 'unset',
+    padding: '0px 10px',
   },
   focusHighlight: {}
 }));
@@ -351,25 +360,25 @@ export default function Popup(props) {
                   <div className={classes.root} style={{marginLeft:'10px', marginTop: "10px", marginBottom: '10px'}}>
                   {!isTag && article.tags && article.tags.map((tag) => {
         if (tag !== "") {
-          const hrefTag = `/tags/${tag}`;
           return (
-            <Chip
-        label={tag} href={hrefTag} value={tag} clickable variant="outlined" size="small" elevation={3} className={classes.chip} onClick={(e) => goToTagPage(tag,e)}
-          />
+            <Fab
+          value={tag} clickable variant="outlined" className={classes.chip} elevation={3}  onClick={(e) => goToTagPage(tag,e)}
+          >{tag}
+          </Fab>
           );
         }
       })}
       {isTag && article.tags && article.tags.map((tag) => {
         if (tag === selectedTag && tag !== "") {
           return (
-          <Chip
-      label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chipSelected} 
-        />);} else {
+          <Fab
+      label={tag} href="#chip" clickable variant="outlined" className={classes.chipSelected} 
+        >{tag}</Fab>);} else {
           if (tag !== "") {
             return (
-              <Chip
-          label={tag} href="#chip" clickable variant="outlined" size="small" className={classes.chip} onClick={(e) => goToTagPage(tag, e)}
-            />);
+              <Fab
+          label={tag} href="#chip" clickable variant="outlined" className={classes.chip} onClick={(e) => goToTagPage(tag, e)}
+            >{tag}</Fab>);
           }
         }
       })}     
