@@ -107,13 +107,15 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid',
     borderColor: '#009362',
     color: '#009362',
+    borderRadius: '5px',
     backgroundColor:'#FFFFFF',
-    marginRight: '2px',
+    marginRight: '5px',
     marginBottom: '5px',
     fontSize: '12px',
     height: '20px',
     textTransform: 'unset',
     padding: '0px 10px',
+    boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.14), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.02)'
   },
   chipSelected: {
     border: '1px solid',
@@ -126,6 +128,7 @@ const useStyles = makeStyles((theme) => ({
     height: '20px',
     textTransform: 'unset',
     padding: '0px 10px',
+    boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.14), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.02)'
   },
   focusHighlight: {}
 }));
