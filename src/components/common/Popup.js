@@ -20,6 +20,8 @@ import Chip from "@material-ui/core/Chip";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import { Divider } from "@material-ui/core";
+import Slide from '@material-ui/core/Slide';
+import Grow from '@material-ui/core/Grow';
 
 import Modal from "@material-ui/core/Modal";
 import { flexbox } from "@material-ui/system";
@@ -449,16 +451,21 @@ export default function Popup(props) {
           >
             Read More..
       </Button> */}
-      {props.article && <Modal
+      {props.article &&
+      
+      <Modal
         open={open}
         onClose={modalClose}
+        onRequestClose={modalClose}
         style={{height: 'flex', display:'flex',alignItems:'center',justifyContent:'center'}}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        
+        <Grow direction="up" in={open} mountOnEnter unmountOnExit>
         {body}
-      </Modal>}
+        </Grow>
+      </Modal>
+      }
     </div>
   );
 }
