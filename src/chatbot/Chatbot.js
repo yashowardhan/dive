@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
+import { red } from '@material-ui/core/colors';
 
 class Review extends Component {
   constructor(props) {
@@ -54,12 +56,32 @@ Review.defaultProps = {
   steps: undefined,
 };
 
+const theme = {
+    background: '#f5f8fb',
+    fontFamily: 'Avenir Next W02,Helvetica,Arial,sans-serif',
+    headerBgColor: '#f92d47',
+    headerFontColor: '#fff',
+    headerFontSize: '16px',
+    botBubbleColor: '#EAF0F6',
+    botFontColor: '#425b76',
+    userBubbleColor: '#f92d47',
+    userFontColor: '#fff',
+    userFontSize: '25px',
+  };
+
 class SimpleForm extends Component {
+
   render() {
     return (
+        <ThemeProvider theme={theme}>
       <ChatBot
-      headerTitle="Speech Synthesis"
-  speechSynthesis={{ enable: true, lang: 'en' }}
+      headerTitle="Pinnium Bot"
+  speechSynthesis={{ enable: false, lang: 'en' }}
+  floating={true}
+  hideUserAvatar={true}
+  bubbleStyle={{ fontSize: '15px', maxWidth: '65%'}}
+  width={'380px'}
+  botAvatar={'https://freesvg.org/img/1538298822.png'}
         steps={[
           {
             id: '1',
@@ -73,7 +95,7 @@ class SimpleForm extends Component {
           },
           {
             id: '2',
-            message: 'Hi {previousValue}! Could you please share your organization name?',
+            message: 'Hey {previousValue}! Could you please share your organization name?',
             trigger: 'organisationName',
           },
           {
@@ -83,13 +105,23 @@ class SimpleForm extends Component {
           },
           {
             id: '3',
-            message: 'Thank you. Can I get your phone no. in case we get disconnected?',
+            message: 'Thank you. Can I get your phone number in case we get disconnected?',
             trigger: 'mobileNumber',
           },
           {
             id: 'mobileNumber',
             user: true,
-            trigger: '5',
+            trigger: '4',
+          },
+          {
+            id: '4',
+            message: 'What is a good email address to contact you with?',
+            trigger: 'email',
+          },
+          {
+            id: 'email',
+            user: true,
+            trigger: '6',
           },
         //   {
         //     id: 'gender',
@@ -98,16 +130,16 @@ class SimpleForm extends Component {
         //       { value: 'female', label: 'Female', trigger: '5' },
         //     ],
         //   },
-          {
-            id: '5',
-            message: 'What is a good email address to contact you with?',
-            trigger: 'mobileNumber',
-          },
-          {
-            id: 'mobileNumber',
-            user: true,
-            trigger: '6',
-          },
+        //   {
+        //     id: '5',
+        //     message: 'What is a good email address to contact you with?',
+        //     trigger: 'mobileNumber',
+        //   },
+        //   {
+        //     id: 'mobileNumber',
+        //     user: true,
+        //     trigger: '6',
+        //   },
           {
             id: '6',
             message: 'Okay. I just need a little bit of information. First up, what are you looking for ?',
@@ -206,10 +238,10 @@ class SimpleForm extends Component {
             end: true,
           },
         ]}
-        height={'100vh'}
-        max-height={'600px'}
-        
+        // height={'100vh'}
+        floatingStyle={{ background: '#f92d47'}}
       />
+      </ThemeProvider>
     );
   }
 }
