@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/home/index";
 import SignIn from "./components/signin/Signin"
 import SignUp from "./components/signup/SignUp";
+import Chatbot from "../src/chatbot/Chatbot";
 import TagCard from "./components/card/TagCard";
 import MediaCard from "./components/card/Card";
 import MediaCardBusiness from "./components/card/BusinessCard";
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/topics" component={Topic} />
+          <Route path="/chat-bot" component={Chatbot} />
           <Route path="/tags/:selectedTag" component={TagCard} />
           <Route exact path="/feed/product" component={MediaCardProduct} />
           <Route exact path="/feed/business-and-strategy" component={MediaCardBusiness} />
