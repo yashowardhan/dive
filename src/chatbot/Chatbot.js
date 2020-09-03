@@ -57,7 +57,7 @@ Review.defaultProps = {
 };
 
 const theme = {
-    background: '#f5f8fb',
+    background: '#ffffff',
     fontFamily: 'Avenir Next W02,Helvetica,Arial,sans-serif',
     headerBgColor: '#f92d47',
     headerFontColor: '#fff',
