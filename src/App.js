@@ -12,6 +12,8 @@ import MediaCardProduct from "./components/card/ProductCard";
 import Recommend from "./components/recommend/Recommend";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
+import LabelBottomNavigation from "./components/common/BottomNavigation";
+import TopNavigator from "./components/common/TopNavigator";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Tags from "./components/common/Tags";
@@ -38,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header /> */}
+      {/* <TopNavigator /> */}
       
       <BrowserRouter>
       <MuiThemeProvider theme={themeDark}>
@@ -60,10 +62,9 @@ function App() {
           <Route component={PageNotFound} />   */}
         </Switch>
         </MuiThemeProvider>
+        <LabelBottomNavigation />
       </BrowserRouter>
       <ToastContainer draggable={false} transition={Bounce} autoClose={3000} />
-
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "../common/Header";
+import TopNavigator from "../common/TopNavigator";
 
 function Home() {
   return (
     <div>
-      <Header/>
+      <TopNavigator/>
     </div>
   );
 }

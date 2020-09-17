@@ -70,16 +70,16 @@ function MediaCard(props) {
   //console.log(users, "data in props");
   return (
     <div>
-    <Header/>
+    {/* <Header/> */}
     <Grid
       container
       direction="row"
       justify="center"
       alignItems="center"
       overflow="auto"
-      style={{ overflowX: 'auto'}}
+      style={{ overflowX: 'auto', marginTop: '10px'}}
     >
-    {<Button
+    {/* {<Button
             type="submit"
             href="/feed"
             width="50%"
@@ -114,9 +114,9 @@ function MediaCard(props) {
             className={classes.topic}
           >
             Business and Strategy
-    </Button>}
+    </Button>} */}
     </Grid>
-    <Divider />
+    {/* <Divider /> */}
     <Grid
       container
       direction="row"
