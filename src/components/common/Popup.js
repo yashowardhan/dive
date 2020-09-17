@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     width: "90%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
-    height: "80%",
+    height: "88%",
     // maxHeight: '90%',
     display: 'block',
     outline: 'none',
