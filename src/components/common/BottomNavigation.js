@@ -59,7 +59,9 @@ export function LabelBottomNavigation() {
   }
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    if (newValue !== 'recents') {
+      setValue(newValue);
+    }
   };
 
   const list = (anchor) => (
