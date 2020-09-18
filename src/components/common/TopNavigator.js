@@ -8,6 +8,8 @@ import Tab from '@material-ui/core/Tab';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import MediaCard from '../card/Card';
+import MediaCardFollowed from '../card/FollowedCard';
+
 
 import Box from '@material-ui/core/Box';
 
@@ -57,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
       boxShadow: 'none',
+      position: 'fixed',
+      top: 0,
+      zIndex: 100,
   },
   customTabRoot: {
     color: "#009362",
@@ -107,10 +112,7 @@ export default function FullWidthTabs() {
           <MediaCard />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+        <MediaCardFollowed />
         </TabPanel>
       </SwipeableViews>
     </div>

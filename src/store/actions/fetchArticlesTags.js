@@ -10,16 +10,4 @@ const fetchArticles = (tag) => (dispatch) => {
     .then((res) => dispatch({ type: FETCH_ARTICLES_TAGS, payload: res.result }));
 };
 
-const fetchArticlesBusiness = (dispatch) => {
-  fetch(`https://xandar.pinnium.in/api/dive-in/articles/?categoryId=5f0afce1a4fcef001d87bd68`)
-    .then((res) => res.json())
-    .then((res) => dispatch({ type: FETCH_ARTICLES_TAGS, payload: res.result }));
-}
-
-const fetchArticlesProduct = (dispatch) => {
-  fetch(`https://xandar.pinnium.in/api/dive-in/articles/?categoryId=5f0afc76a4fcef001d87bd67`)
-    .then((res) => res.json())
-    .then((res) => dispatch({ type: FETCH_ARTICLES_TAGS, payload: res.result }));
-}
-
 export default fetchArticles;

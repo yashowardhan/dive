@@ -321,7 +321,7 @@ export default function Popup(props) {
 
   return (
     <div>
-      <React.Fragment>
+      {article && isBookmarked && isLiked && <React.Fragment>
             {props.article && <Card className={classes.root}>
               <CardActionArea  onClick={modalOpen} classes={{
           root: classes.actionArea,
@@ -440,17 +440,8 @@ export default function Popup(props) {
                 </IconButton>}
               </CardActions>
             </Card>}
-          </React.Fragment>
-      {/* <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={handleOpen}
-          >
-            Read More..
-      </Button> */}
+          </React.Fragment>}
+      
       {props.article &&
       
       <Modal

@@ -9,6 +9,8 @@ import TagCard from "./components/card/TagCard";
 import MediaCard from "./components/card/Card";
 import MediaCardBusiness from "./components/card/BusinessCard";
 import MediaCardProduct from "./components/card/ProductCard";
+import MediaCardBookmarked from "./components/card/BookmarkedCard";
+import MediaCardLiked from "./components/card/LikedCard";
 import Recommend from "./components/recommend/Recommend";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
@@ -55,6 +57,8 @@ function App() {
           <Route path="/tags/:selectedTag" component={TagCard} />
           <Route exact path="/feed/product" component={MediaCardProduct} />
           <Route exact path="/feed/business-and-strategy" component={MediaCardBusiness} />
+          <Route exact path="/bookmarks" component={MediaCardBookmarked} />
+          <Route exact path="/liked" component={MediaCardLiked} />
           {/* <Route path="/topics" component={Topics} /> */}
           <Route path="/recommend" component={Recommend} />
           {/* <Route path="/course/:slug" component={ManageCoursePage} />

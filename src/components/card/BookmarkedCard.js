@@ -16,7 +16,7 @@ import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import { connect } from "react-redux";
 import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
-import fetchArticles from "../../store/actions/fetchArticles";
+import fetchBookmarkedArticles from "../../store/actions/fetchBookmarkedArticles";
 import Popup from "../common/Popup";
 import { Grid, GridList, Divider } from "@material-ui/core";
 
@@ -51,18 +51,17 @@ const useStyles = makeStyles((theme) => ({
       color: '#FFFFFF'
     },
     fontSize: '12px',
-    padding: '3px 3px',
-    boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.14), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.02)'
-
+    padding: '3px 3px'
   }
 }));
 
-function MediaCard(props) {
+function MediaCardBookmarked(props) {
   const classes = useStyles();
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
+    console.log('xyz')
     // Update the document title using the browser API
-    props.fetchArticles();
+    props.fetchBookmarkedArticles();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(props.articles, "articles working cool");
@@ -70,24 +69,24 @@ function MediaCard(props) {
   //console.log(users, "data in props");
   return (
     <div>
-    {/* <Header/> */}
+    <Header/>
     <Grid
       container
       direction="row"
       justify="center"
       alignItems="center"
       overflow="auto"
-      style={{ overflowX: 'auto', marginTop: '10px'}}
+      style={{ overflowX: 'auto'}}
     >
-    {/* {<Button
+      {<Button
             type="submit"
             href="/feed"
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.selectedTopic}
+            color="#009362"
+            justifyContent="center"
+            className={classes.topic}
           >
             All
     </Button>}
@@ -97,9 +96,9 @@ function MediaCard(props) {
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.topic}
+            color="#009362"
+            justifyContent="center"
+            className={classes.selectedTopic}
           >
             Product
     </Button>}
@@ -109,14 +108,14 @@ function MediaCard(props) {
             width="50%"
             border="1px"
             variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
+            color="#009362"
+            justifyContent="center"
             className={classes.topic}
           >
             Business and Strategy
-    </Button>} */}
+    </Button>}
     </Grid>
-    {/* <Divider /> */}
+    <Divider />
     <Grid
       container
       direction="row"
@@ -124,14 +123,11 @@ function MediaCard(props) {
       alignItems="center"
     >
     <div className="parent-card">
-      {
-        articles.map((article) => {
-          return (
-            <div className="card-box">
-              <Popup article={article} ></Popup>
-            </div>
-          )})
-      }
+      {articles.map((article) => (
+        <div className="card-box">
+          <Popup article={article} isBookmarked={true}></Popup>
+        </div>
+      ))}
     </div>
     </Grid>
     </div>
@@ -152,8 +148,8 @@ const MapDispatchToProps = (dispatch) => {
   return {
     updatePosts: () => dispatch(updatePosts),
     fetchUsers: () => dispatch(fetchUsers),
-    fetchArticles: (y) => dispatch(fetchArticles(y)),
+    fetchBookmarkedArticles: () => dispatch(fetchBookmarkedArticles),
   };
 };
 
-export default connect(MapStateToProps, MapDispatchToProps)(MediaCard);
+export default connect(MapStateToProps, MapDispatchToProps)(MediaCardBookmarked);
