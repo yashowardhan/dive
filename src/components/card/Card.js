@@ -122,6 +122,7 @@ function MediaCard(props) {
       direction="row"
       justify="center"
       alignItems="center"
+      style={{ marginTop: '50px' }}
     >
     <div className="parent-card">
       {

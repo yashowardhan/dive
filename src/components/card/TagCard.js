@@ -93,57 +93,14 @@ function TagCard(props) {
   return (
     <div>
     <Header/>
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      overflow="auto"
-      style={{ overflowX: 'auto'}}
-    >
-        {<Button
-            type="submit"
-            href="/feed"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            color="#009362"
-            justifyContent="center"
-            className={classes.selectedTopic}
-          >
-            All
-    </Button>}
-    {<Button
-            type="submit"
-            href="/feed/product"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            color="#009362"
-            justifyContent="center"
-            className={classes.topic}
-          >
-            Product
-    </Button>}
-    {<Button
-            type="submit"
-            href="/feed/business-and-strategy"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            color="#009362"
-            justifyContent="center"
-            className={classes.topic}
-          >
-            Business and Strategy
-    </Button>}
-    </Grid>
+    
     <Divider />
     <Grid
       container
       direction="column"
       justify="center"
       alignItems="center"
+      style={{ marginTop: '50px'}}
     >
     <Chip
       label={tag} href="#chip" clickable  size="small" className={classes.chip} onDelete={yz}

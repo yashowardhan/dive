@@ -101,7 +101,7 @@ export default function SignIn() {
   let location = useLocation();
 
   let { toTopics } = location.state || { toTopics: { pathname: "/topics" } };
-  let { toFeed } = location.state || { toFeed: { pathname: "/feed" } };
+  let { toFeed } = location.state || { toFeed: { pathname: "/" } };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submit = (e) => {

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -19,6 +19,14 @@ import fetchUsers from "../../store/actions/fetchUsers";
 import fetchFollowedArticles from "../../store/actions/fetchFollowedArticles";
 import Popup from "../common/Popup";
 import { Grid, GridList, Divider } from "@material-ui/core";
+import FlikcIcon from '../../Flick.jpg';
+
+
+const CustomTextTypography = withStyles({
+  root: {
+    color: "#009362",
+  }
+})(Typography);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,8 +75,9 @@ function MediaCardFollowed(props) {
   const { articles } = props;
   //console.log(users, "data in props");
   return (
+    
     <div>
-    <Header/>
+    {/* <Header/>
     <Grid
       container
       direction="row"
@@ -113,13 +122,36 @@ function MediaCardFollowed(props) {
           >
             Business and Strategy
     </Button>}
+    </Grid> */}
+    {!sessionStorage.getItem('userId') && <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      style={{ marginTop: '125px' }}
+    >
+      <img src={FlikcIcon} height="150px" />
+      <CustomTextTypography> Please Sign in to follow topics. </CustomTextTypography>
     </Grid>
-    <Divider />
-    <Grid
+    }
+    {sessionStorage.getItem('userId') && articles.length===0 && <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      style={{ marginTop: '125px' }}
+    >
+      <img src={FlikcIcon} height="150px" />
+      <CustomTextTypography> Hmmm...So you don't follow anything! </CustomTextTypography>
+    </Grid>
+    }
+
+    {sessionStorage.getItem('userId') && (articles.length>0)&& <Grid
       container
       direction="row"
       justify="center"
       alignItems="center"
+      style={{ marginTop: '50px' }}
     >
     <div className="parent-card">
       {articles.map((article) => (
@@ -128,17 +160,18 @@ function MediaCardFollowed(props) {
         </div>
       ))}
     </div>
-    </Grid>
+    </Grid>}
     </div>
   );
 }
 
 //Make State accessible to movies and users in App.
 const MapStateToProps = (state) => {
+  console.log(state);
   return {
     posts: state.posts,
     users: state.users,
-    articles: state.articles,
+    articles: state.followedArticles,
   };
 };
 

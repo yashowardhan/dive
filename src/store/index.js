@@ -2,6 +2,9 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import postlistReducer from "./reducers/postlistReducer";
 import userReducer from "./reducers/userReducer";
 import articleReducer from "./reducers/articlelistReducer";
+import followedArticlesReducer from "./reducers/followedArticlesReducer";
+import likedArticlesReducer from "./reducers/likedArticlesReducer";
+import bookmarkedArticlesReducer from "./reducers/bookmarkedArticlesReducer";
 import topicReducer from "./reducers/topicReducer";
 import thunk from "redux-thunk";
 
@@ -13,6 +16,9 @@ const allReducers = combineReducers({
   topics: topicReducer,
   posts: postlistReducer,
   users: userReducer,
+  followedArticles: followedArticlesReducer,
+  bookmarkedArticles: bookmarkedArticlesReducer,
+  likedArticles: likedArticlesReducer,
 });
 
 //Create initial State.
