@@ -101,10 +101,10 @@ export function LabelBottomNavigation() {
             {list('right')}
       </SwipeableDrawer>
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Menu" value="recents" icon={<MenuIcon />} classes={{
+      {/* <BottomNavigationAction label="Menu" value="recents" icon={<MenuIcon />} classes={{
           root: classes.bottomAction,
           selected: classes.selected,
-      }} onClick={toggleDrawer} />
+      }} onClick={toggleDrawer} /> */}
       <BottomNavigationAction label="Liked" value="favorites"  icon={<ThumbUpIcon />} classes={{
           root: classes.bottomAction,
           selected: classes.selected,
