@@ -207,16 +207,16 @@ export default function Popup(props) {
     setOpen(false);
     const { article } = props;
     const { _id: articleId } = article;
-    if (userId) {
+    // if (userId) {
       fetch(`https://xandar.pinnium.in/api/dive-in/articles/analytics`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userId: sessionStorage.getItem('userId'), articleId, analyticType: 'OPEN_ARTICLE'  }),
     });
       window.open(article.url);
-    } else {
-      history.push(toSignIn);
-    }
+    // } else {
+    //   history.push(toSignIn);
+    // }
   };
 
   const modalOpen = () => {
@@ -346,14 +346,14 @@ export default function Popup(props) {
                     By {article.author}
                   </Typography>
 
-                  <Typography
+                  {/* <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
                     style={{ color: "#2b2b2b", marginLeft: '10px' }}
                   >
                     {article.categoryName} | {article.timeToRead} min read
-                  </Typography>
+                  </Typography> */}
                   {/* <Typography
                     variant="body2"
                     color="textSecondary"

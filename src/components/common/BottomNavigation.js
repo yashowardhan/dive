@@ -78,12 +78,15 @@ export function LabelBottomNavigation() {
       </div>
       <Divider />
       <List>
-        {['Profile', 'Topics', 'Recently Viewed', 'All tags', 'Subscribe To Our Newsletter', 'Share Flikc', 'Logout' ].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+          <ListItem button key={'Profile'}>
+            <ListItemText primary={'Profile'} />
           </ListItem>
-        ))}
+          <ListItem button key={'Topics'} href='/topics'>
+            <ListItemText primary={'Topics'} />
+          </ListItem>
+          <ListItem button key={'Logout'}>
+            <ListItemText primary={'Logout'} />
+          </ListItem>
       </List>
     </div>
   );
