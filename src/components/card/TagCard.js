@@ -75,7 +75,7 @@ function TagCard(props) {
   let history = useHistory();
   let location = useLocation();
 
-  let { toFeed } = location.state || { toFeed: { pathname: "/feed" } };
+  let { toFeed } = location.state || { toFeed: { pathname: "/" } };
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     // Update the document title using the browser API
