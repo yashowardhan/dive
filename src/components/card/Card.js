@@ -125,6 +125,7 @@ function MediaCard(props) {
       style={{ marginTop: '50px' }}
     >
     <div className="parent-card">
+      <Typography> Try clicking on the tags to find relevant articles. </Typography>
       {
         articles.map((article) => {
           return (
