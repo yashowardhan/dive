@@ -8,19 +8,13 @@ import { FETCH_PICK_OF_DAY } from "../actions/fetchPickOfTheDay";
 // Recieve type and payload from action and return payload.
 // Use a switch since it's more readable.
 
-const articleReducer = (state = {}, { type, payload }) => {
+const popularTagsReducer = (state = {}, { type, payload }) => {
   switch (type) {
-    case FETCH_ARTICLES:
-      return payload;
-    case FETCH_ARTICLES_BUSINESS:
-      return payload;
-    case FETCH_ARTICLES_PRODUCT:
-      return payload;
-    case FETCH_ARTICLES_TAGS:
+    case FETCH_POPULAR_TAGS:
       return payload;
     default:
       return state;
   }
 };
 
-export default articleReducer;
+export default popularTagsReducer;

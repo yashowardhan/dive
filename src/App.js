@@ -12,6 +12,7 @@ import MediaCardProduct from "./components/card/ProductCard";
 import MediaCardBookmarked from "./components/card/BookmarkedCard";
 import MediaCardLiked from "./components/card/LikedCard";
 import Recommend from "./components/recommend/Recommend";
+import AllTags from "./components/AllTags/AllTags";
 import Topic from "./components/topics/Topic";
 import Header from "./components/common/Header";
 import LabelBottomNavigation from "./components/common/BottomNavigation";
@@ -47,8 +48,9 @@ function App() {
       <BrowserRouter>
       <MuiThemeProvider theme={themeDark}>
         <Switch>
-          <Route exact path="/feed" component={MediaCard} />
-          <Route exact path="/" component={Home} />
+          <Route exact path="/feed" component={Home} />
+          <Route exact path="/" component={AllTags} />
+
           <Route exact path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/topics" component={Topic} />

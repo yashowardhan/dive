@@ -17,6 +17,7 @@ import { connect } from "react-redux";
 import updatePosts from "../../store/actions/updatePosts";
 import fetchUsers from "../../store/actions/fetchUsers";
 import fetchArticles from "../../store/actions/fetchArticles";
+import fetchPickOfDay from "../../store/actions/fetchPickOfTheDay";
 import Popup from "../common/Popup";
 import { Grid, GridList, Divider } from "@material-ui/core";
 
@@ -63,69 +64,37 @@ function MediaCard(props) {
   useEffect(() => {
     // Update the document title using the browser API
     props.fetchArticles();
+    props.fetchPickOfDay();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(props.articles, "articles working cool");
-  const { articles } = props;
+  const { articles, pickOfTheDay } = props;
   //console.log(users, "data in props");
   return (
     <div>
     {/* <Header/> */}
     <Grid
       container
-      direction="row"
+      direction="column"
       justify="center"
       alignItems="center"
       overflow="auto"
-      style={{ overflowX: 'auto', marginTop: '10px'}}
+      style={{ marginTop: '55px', marginBottom: '10px'}}
     >
-    {/* {<Button
-            type="submit"
-            href="/feed"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.selectedTopic}
-          >
-            All
-    </Button>}
-    {<Button
-            type="submit"
-            href="/feed/product"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.topic}
-          >
-            Product
-    </Button>}
-    {<Button
-            type="submit"
-            href="/feed/business-and-strategy"
-            width="50%"
-            border="1px"
-            variant="outlined"
-            // color="#009362"
-            //justifyContent="center"
-            className={classes.topic}
-          >
-            Business and Strategy
-    </Button>} */}
+      <Typography> Pick Of The Day! </Typography>
+      <div className="card-box">
+        <Popup article={pickOfTheDay} ></Popup>
+      </div>
     </Grid>
-    {/* <Divider /> */}
+    {<Divider style={{ marginTop: "20px" }}/>}
     <Grid
       container
       direction="row"
       justify="center"
       alignItems="center"
-      style={{ marginTop: '50px' }}
+      style={{ marginTop: '0px' }}
     >
     <div className="parent-card">
-      <Typography> Try clicking on the tags to find relevant articles. </Typography>
+      <Typography> Click on the tags to find relevant articles. </Typography>
       {
         articles.map((article) => {
           return (
@@ -146,6 +115,7 @@ const MapStateToProps = (state) => {
     posts: state.posts,
     users: state.users,
     articles: state.articles,
+    pickOfTheDay: state.pickOfDay,
   };
 };
 
@@ -155,6 +125,7 @@ const MapDispatchToProps = (dispatch) => {
     updatePosts: () => dispatch(updatePosts),
     fetchUsers: () => dispatch(fetchUsers),
     fetchArticles: (y) => dispatch(fetchArticles(y)),
+    fetchPickOfDay: () => dispatch(fetchPickOfDay),
   };
 };
 

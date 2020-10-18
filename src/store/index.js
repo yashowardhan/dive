@@ -5,6 +5,9 @@ import articleReducer from "./reducers/articlelistReducer";
 import followedArticlesReducer from "./reducers/followedArticlesReducer";
 import likedArticlesReducer from "./reducers/likedArticlesReducer";
 import bookmarkedArticlesReducer from "./reducers/bookmarkedArticlesReducer";
+import tagsReducer from "./reducers/tagsReducer";
+import popularTagsReducer from "./reducers/popularTagsReducer";
+import pickOfDayReducer from "./reducers/pickOfDayReducer";
 import topicReducer from "./reducers/topicReducer";
 import thunk from "redux-thunk";
 
@@ -19,6 +22,9 @@ const allReducers = combineReducers({
   followedArticles: followedArticlesReducer,
   bookmarkedArticles: bookmarkedArticlesReducer,
   likedArticles: likedArticlesReducer,
+  tags: tagsReducer,
+  popularTags: popularTagsReducer,
+  pickOfDay: pickOfDayReducer,
 });
 
 //Create initial State.
@@ -26,6 +32,9 @@ const initialState = {
   articles: [],
   topics: [],
   users: [],
+  tags: [],
+  popularTags: [],
+  pickOfDay: {},
   posts: { name: "TERMINATOR 2" },
 };
 //Create out store and set our reducers, state, and middleware.

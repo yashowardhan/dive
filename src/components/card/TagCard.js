@@ -100,7 +100,7 @@ function TagCard(props) {
       direction="column"
       justify="center"
       alignItems="center"
-      style={{ marginTop: '50px'}}
+      style={{ marginTop: '20px'}}
     >
     <Chip
       label={tag} href="#chip" clickable  size="small" className={classes.chip} onDelete={yz}
