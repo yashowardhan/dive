@@ -166,7 +166,7 @@ function AllTags(props) {
         { tags.map((tag) => {
             return (
                 <Fab
-                    value={tag} clickable variant="outlined" className={classes.chip} elevation={3}  onClick={(e) => goToTagPage(tag,e)}
+                    value={tag.name} clickable variant="outlined" className={classes.chip} elevation={3}  onClick={(e) => goToTagPage(tag.name,e)}
                 >{tag.name}
                 </Fab>
             )
