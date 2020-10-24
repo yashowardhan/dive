@@ -70,7 +70,7 @@ function MediaCard(props) {
   const { articles, pickOfTheDay } = props;
   //console.log(users, "data in props");
   return (
-    <div>
+    <div style={{ marginBottom: '56px'}}>
     {/* <Header/> */}
     <Grid
       container

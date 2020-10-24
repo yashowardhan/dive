@@ -75,7 +75,7 @@ function MediaCardLiked(props) {
   const { articles } = props;
   //console.log(users, "data in props");
   return (
-    <div>
+    <div style={{ marginBottom: '56px'}}>
     <Header/>
 
     {!sessionStorage.getItem('userId') && <Grid
