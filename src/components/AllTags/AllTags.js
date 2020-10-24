@@ -77,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:'#009362',
     marginRight: '2px',
     marginBottom: '8px',
-    fontSize: '12px',
-    height: '20px',
+    fontSize: '14px',
+    height: '30px',
     textTransform: 'unset',
     padding: '0px 10px',
     boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.14), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.02)'
@@ -115,7 +115,7 @@ function AllTags(props) {
   }
   //console.log(users, "data in props");
   return (
-    <div>
+    <div style={{marginBottom: '56px'}}>
     <Header/>
     <Divider />
     <Grid
@@ -151,27 +151,38 @@ function AllTags(props) {
         })}
     </Grid>
     <Divider />
-    <Typography 
-        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
-    >
-        Other Tags: 
-    </Typography>
-    <Grid
-      container
-      direction="row"
-      justify="left"
-      alignItems="left"
-      style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px'}}
-    >
-        { tags.map((tag) => {
-            return (
-                <Fab
-                    value={tag.name} clickable variant="outlined" className={classes.chip} elevation={3}  onClick={(e) => goToTagPage(tag.name,e)}
-                >{tag.name}
-                </Fab>
-            )
-        })}
-    </Grid>
+    {tags.map((item) => {
+      if (item.categoryName !== 'Other') {
+        return (
+          <div>
+            <Typography 
+              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+            >
+                {item.categoryName}
+            </Typography>
+            <Grid
+              container
+              direction="row"
+              justify="left"
+              alignItems="left"
+              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px'}}
+            >
+                { item.categoryTags.map((tag) => {
+                    return (
+                        <Fab
+                            value={tag.name} clickable variant="outlined" className={classes.chip} elevation={3}  onClick={(e) => goToTagPage(tag.name,e)}
+                        >{tag.name}
+                        </Fab>
+                    )
+                })}
+            </Grid>
+            <Divider />
+          </div>
+        )
+      } else {
+        return null;
+      }
+    })}
     </div>
   );
 }

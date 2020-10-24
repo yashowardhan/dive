@@ -346,14 +346,14 @@ export default function Popup(props) {
                     By {article.author}
                   </Typography>
 
-                  {/* <Typography
+                  <Typography
                     gutterBottom
                     variant="h5"
                     component="p"
                     style={{ color: "#2b2b2b", marginLeft: '10px' }}
                   >
-                    {article.categoryName} | {article.timeToRead} min read
-                  </Typography> */}
+                    {article.timeToRead} min read
+                  </Typography>
                   {/* <Typography
                     variant="body2"
                     color="textSecondary"

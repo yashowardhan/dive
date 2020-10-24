@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Link, withRouter} from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
 import BookmarkIcon from "@material-ui/icons/Bookmark";
@@ -47,7 +48,7 @@ const useStyles = makeStyles({
 
 export function LabelBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('feed');
+  const [value, setValue] = React.useState('tags');
   const [isMenuOpen, setMenu] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -105,6 +106,10 @@ export function LabelBottomNavigation() {
           root: classes.bottomAction,
           selected: classes.selected,
       }} onClick={toggleDrawer} /> */}
+      <BottomNavigationAction label="Tags" value="tags"  icon={<LocalOfferIcon />} classes={{
+          root: classes.bottomAction,
+          selected: classes.selected,
+      }} component={Link} to={'/'}/>
       <BottomNavigationAction label="Liked" value="favorites"  icon={<ThumbUpIcon />} classes={{
           root: classes.bottomAction,
           selected: classes.selected,
@@ -112,7 +117,7 @@ export function LabelBottomNavigation() {
       <BottomNavigationAction label="Feed" value="feed" icon={<DynamicFeedIcon />} classes={{
           root: classes.bottomAction,
           selected: classes.selected,
-      }} component={Link} to={'/'}/>
+      }} component={Link} to={'/feed'}/>
       <BottomNavigationAction label="Bookmarks" value="folder" icon={<BookmarkIcon />} classes={{
           root: classes.bottomAction,
           selected: classes.selected,
