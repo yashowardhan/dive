@@ -126,7 +126,7 @@ function AllTags(props) {
       style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px'}}
     >
         <Typography style={{ fontStyle: 'bold', }}>{`Select a topic to dive in or `} </Typography>
-        <Typography style={{ marginLeft: '3px', color: '#009362',fontFamily: 'monospace', fontWeight: 600, fontSize: '1.25rem', textDecoration: 'underline' }} onClick={goToFeedPage}>Explore</Typography>
+        <Typography style={{ marginLeft: '3px', color: '#009362',fontFamily: 'monospace', fontWeight: 'bold', fontSize: '1.25rem', textDecoration: 'underline' }} onClick={goToFeedPage}>Explore</Typography>
     </Grid>
     <Divider />
     <Typography 
