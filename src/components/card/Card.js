@@ -81,7 +81,7 @@ function MediaCard(props) {
       style={{ marginTop: '55px', marginBottom: '10px'}}
     >
       <Typography 
-        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 600, fontSize: '1.4rem', textDecoration: 'underline'}}
       >
         PICK OF THE DAY!
       </Typography>
@@ -99,7 +99,7 @@ function MediaCard(props) {
     >
     <div className="parent-card">
     <Typography 
-        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 600, fontSize: '1.4rem', fontStyle: 'bold', textDecoration: 'underline'}}
       >
         TOP READS: 
       </Typography>

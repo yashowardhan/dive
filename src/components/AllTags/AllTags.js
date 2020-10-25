@@ -126,11 +126,11 @@ function AllTags(props) {
       style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px'}}
     >
         <Typography style={{ fontStyle: 'bold', }}>{`Select a topic to dive in or `} </Typography>
-        <Typography style={{ marginLeft: '3px', color: '#009362',fontStyle: 'bold', textDecoration: 'underline' }} onClick={goToFeedPage}>Explore</Typography>
+        <Typography style={{ marginLeft: '3px', color: '#009362',fontFamily: 'monospace', fontWeight: 600, fontSize: '1.25rem', textDecoration: 'underline' }} onClick={goToFeedPage}>Explore</Typography>
     </Grid>
     <Divider />
     <Typography 
-        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 600, fontSize: '1.25rem', textDecoration: 'underline'}}
     >
         Popular Tags: 
     </Typography>
@@ -156,7 +156,7 @@ function AllTags(props) {
         return (
           <div>
             <Typography 
-              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 600, fontSize: '1.25rem', textDecoration: 'underline'}}
             >
                 {item.categoryName}
             </Typography>
