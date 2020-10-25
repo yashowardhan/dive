@@ -80,7 +80,11 @@ function MediaCard(props) {
       overflow="auto"
       style={{ marginTop: '55px', marginBottom: '10px'}}
     >
-      <Typography> Pick Of The Day! </Typography>
+      <Typography 
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+      >
+        PICK OF THE DAY!
+      </Typography>
       <div className="card-box">
         <Popup article={pickOfTheDay} ></Popup>
       </div>
@@ -94,7 +98,11 @@ function MediaCard(props) {
       style={{ marginTop: '0px' }}
     >
     <div className="parent-card">
-      <Typography> Click on the tags to find relevant articles. </Typography>
+    <Typography 
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontStyle: 'bold', textDecoration: 'underline'}}
+      >
+        TOP READS: 
+      </Typography>
       {
         articles.map((article) => {
           return (
