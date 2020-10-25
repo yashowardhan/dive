@@ -130,7 +130,7 @@ function AllTags(props) {
     </Grid>
     <Divider />
     <Typography 
-        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 'bolder', fontSize: '1.25rem', textDecoration: 'underline'}}
+        style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 'bold', fontSize: '1.25rem', textDecoration: 'underline'}}
     >
         Popular Tags: 
     </Typography>
@@ -156,7 +156,7 @@ function AllTags(props) {
         return (
           <div>
             <Typography 
-              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 'bolder', fontSize: '1.25rem', textDecoration: 'underline'}}
+              style={{ marginTop: '10px', marginBottom: '10px', marginLeft: '10px', fontFamily: 'monospace', fontWeight: 'bold', fontSize: '1.25rem', textDecoration: 'underline'}}
             >
                 {item.categoryName}
             </Typography>
